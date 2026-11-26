@@ -1,0 +1,1674 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Housewarming 1804</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Allura&family=Jost:wght@400;500&display=swap">
+<style>
+/* Layout: a linen tabletop flat-lay — the housewarming suite laid out piece by piece, controls as a quiet strip above.
+   Single deliberate light theme: this is paper on a table. */
+:root {
+  color-scheme: light;
+  --table: #e8e2d6;
+  --table-ink: #4a4636;
+  --table-muted: #7d7764;
+  --paper: #fcfaf4;
+  --ink: #474a20;
+  --chip: #f6f2e8;
+  --line: #cfc7b3;
+  --display: "EB Garamond", Garamond, "Times New Roman", serif;
+  --script: "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
+  --sf: .74;          /* script size factor, so each lettering choice sits at the same visual size */
+  --script-style: normal;
+  --ui: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+body { background: var(--table); color: var(--table-ink); font-family: var(--ui); padding-inline: 16px; padding-block: 28px 64px; }
+.wrap { max-width: 1240px; margin: 0 auto; display: grid; gap: 30px; }
+
+header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 18px 32px; }
+header h1 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 2.1rem; letter-spacing: .18em; text-transform: uppercase; line-height: 1; }
+header h1 em { font-family: var(--script); font-style: normal; text-transform: none; letter-spacing: 0; font-size: 1.6em; font-weight: 400; margin-right: .1em; position: relative; top: .12em; }
+header p { margin: 8px 0 0; color: var(--table-muted); font-size: .9rem; max-width: 56ch; line-height: 1.5; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 14px 20px; align-items: end; }
+.group { display: flex; flex-direction: column; gap: 6px; }
+.group > span { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--table-muted); }
+.seg { display: flex; flex-wrap: wrap; background: var(--chip); border: 1px solid var(--line); border-radius: 999px; padding: 3px; gap: 2px; }
+.seg button, .btn { font: 500 .8rem/1 var(--ui); color: var(--table-ink); background: transparent; border: 0; border-radius: 999px; padding: 8px 13px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; }
+.seg button[aria-pressed="true"] { background: var(--table-ink); color: var(--chip); }
+.btn { border: 1px solid var(--line); background: var(--chip); padding: 9px 15px; }
+.btn:hover, .seg button:hover:not([aria-pressed="true"]) { background: #ece6d8; }
+button:focus-visible, [contenteditable]:focus-visible, input:focus-visible { outline: 2px solid #8c8457; outline-offset: 2px; }
+.sw { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+section.piece { display: grid; gap: 16px; align-content: start; }
+.piece-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.piece-head h2 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 1.35rem; letter-spacing: .04em; }
+.piece-head span { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--table-muted); font-variant-numeric: tabular-nums; }
+.amount { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--table-muted); }
+.amount .seg.mini { margin-left: 0; }
+.seg.mini { margin-left: auto; align-self: center; padding: 2px; }
+.seg.mini button { padding: 6px 10px; font-size: .72rem; }
+.piece-head p { flex: 0 0 100%; margin: 0; font-size: .85rem; color: var(--table-muted); line-height: 1.5; }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 40px 48px; }
+.placards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 22px; }
+
+.card {
+  position: relative; container-type: inline-size; overflow: hidden; max-width: 100%;
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .38 0 0 0 0 .28 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  box-shadow: 0 1px 1px rgba(70,60,35,.08), 0 22px 34px -16px rgba(70,60,35,.35);
+  color: var(--ink);
+}
+.card.invite { width: 440px; aspect-ratio: 5 / 7; }
+.card.thanks { width: 250px; aspect-ratio: 2.5 / 7; }
+.card.menu { width: 500px; aspect-ratio: 148 / 210; }
+.card.bar { width: 440px; aspect-ratio: 5 / 7; }
+.card.placard { width: 100%; aspect-ratio: 7 / 4; }
+.card.booth { width: 460px; aspect-ratio: 1080 / 1350; background: transparent; }
+.card.board { width: 540px; aspect-ratio: 18 / 24; }
+
+.flora, .frame { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.flora { mix-blend-mode: multiply; }
+.card { --u: calc(1cqw * var(--k, 1)); }
+/* --u is the type unit: 1% of card width, shrunk in bouquet mode for the narrower column.
+   --k is set by fitting code so a long menu shrinks just enough to stay inside its card. */
+.inner { --u: calc(1cqw * var(--k, 1)); }
+.card.bouq .inner { --u: calc(.75cqw * var(--k, 1)); }
+.inner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-family: var(--display); }
+.inner p, .inner h3 { margin: 0; }
+[contenteditable] { border-radius: 2px; white-space: pre-line; cursor: text; }
+[contenteditable]:hover { background: rgba(140,132,87,.08); }
+
+/* Shared type roles, sized to each card so every format scales cleanly */
+.eyebrow { font-size: calc(2.9 * var(--u)); letter-spacing: .2em; text-transform: uppercase; font-weight: 600; }
+.script { font-family: var(--script); font-style: var(--script-style); font-weight: 400; line-height: 1.05; }
+:root[data-letter="soft"] { --script: "Allura", "Snell Roundhand", cursive; --sf: .88; }
+:root[data-letter="italic"] { --script: "EB Garamond", Garamond, serif; --script-style: italic; --sf: .6; }
+.dots { width: 100%; border-top: 1px dotted currentColor; opacity: .5; }
+.date-s { font-size: calc(3.36 * var(--u)); letter-spacing: .2em; text-transform: uppercase; margin-top: calc(2.4 * var(--u)) !important; font-weight: 600; }
+
+/* Invitation */
+.invite .inner { gap: calc(3.4 * var(--u)); }
+.invite .title { font-size: calc(7.4 * var(--u)); letter-spacing: .14em; margin-right: -.14em; font-weight: 500; text-transform: uppercase; line-height: 1; }
+.invite .lead { font-size: calc(7.4 * var(--u) * var(--sf) / .74); margin-top: calc(-1 * var(--u)); }
+.when { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: 100%; }
+.when > div { padding-inline: calc(3 * var(--u)); }
+.when .mid { border-inline: 1px solid color-mix(in srgb, currentColor 45%, transparent); padding-block: calc(.6 * var(--u)); }
+.when .day { font-size: calc(9.5 * var(--u)); font-weight: 500; line-height: 1; font-variant-numeric: lining-nums; }
+.when .side { font-size: calc(3.02 * var(--u)); letter-spacing: .14em; text-transform: uppercase; line-height: 1.7; font-weight: 600; }
+.invite .at { font-size: calc(7.5 * var(--u) * var(--sf) / .74); line-height: .6; }
+.invite .place { font-size: calc(3.25 * var(--u)); letter-spacing: .13em; text-transform: uppercase; line-height: 1.7; font-weight: 600; }
+.invite .map-link { font-size: calc(2.5 * var(--u)); letter-spacing: .18em; text-transform: uppercase; font-weight: 600; }
+.invite .map-link a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .35em; }
+.maprow { display: flex; align-items: center; gap: 8px; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--table-muted); max-width: 380px; }
+.maprow a { color: var(--table-ink); text-transform: none; letter-spacing: 0; font-size: .8rem; }
+.maprow input { flex: 1; min-width: 0; font: 400 .82rem/1.2 var(--ui); letter-spacing: 0; text-transform: none; color: var(--table-ink); background: var(--chip); border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; }
+.invite .rsvp { font-weight: 600; font-size: calc(2.55 * var(--u)); letter-spacing: .14em; text-transform: uppercase; line-height: 1.8; opacity: .9; }
+
+/* Thank you */
+.thanks .thank { font-size: calc(10.5 * var(--u)); letter-spacing: .38em; margin-right: -.38em; text-transform: uppercase; font-weight: 500; line-height: 1; }
+.thanks .you { font-size: calc(18 * var(--u) * var(--sf) / .74); margin-top: calc(-3 * var(--u)); margin-left: calc(10 * var(--u)); }
+.thanks .note { font-size: calc(5.34 * var(--u)); line-height: 1.55; margin-block: calc(8 * var(--u)) calc(9 * var(--u)) !important; }
+.thanks .from { font-size: calc(9.6 * var(--u) * var(--sf) / .74); }
+
+/* A5 menu */
+.menu .the { font-size: calc(10 * var(--u) * var(--sf) / .74); margin-bottom: calc(-2.8 * var(--u)); margin-right: calc(12 * var(--u)); }
+.menu .menu-h { font-size: calc(6.6 * var(--u)); letter-spacing: .5em; margin-right: -.5em; font-weight: 500; text-transform: uppercase; line-height: 1; }
+.menu .courses { display: flex; flex-direction: column; gap: calc(3 * var(--u)); margin-block: calc(4 * var(--u)); }
+.menu .course { display: flex; flex-direction: column; align-items: center; gap: calc(.7 * var(--u)); }
+.menu .label { font-size: calc(7 * var(--u) * var(--sf) / .74); margin-bottom: calc(.4 * var(--u)); }
+.menu .dishes { font-size: calc(3.13 * var(--u)); letter-spacing: .1em; text-transform: uppercase; font-weight: 600; line-height: 1.85; }
+.menu .sign { font-size: calc(3.36 * var(--u)); letter-spacing: .22em; text-transform: uppercase; font-weight: 600; }
+
+/* Bar menu */
+.bar .the { font-size: calc(9.5 * var(--u) * var(--sf) / .74); margin-bottom: calc(-2.6 * var(--u)); margin-right: calc(11 * var(--u)); }
+.bar .bar-h { font-size: calc(8 * var(--u)); letter-spacing: .5em; margin-right: -.5em; font-weight: 500; text-transform: uppercase; line-height: 1; }
+.bar .sections { display: flex; flex-direction: column; gap: calc(2.6 * var(--u)); margin-block: calc(3.4 * var(--u)); }
+.bar .sect { display: flex; flex-direction: column; align-items: center; gap: calc(1.2 * var(--u)); }
+.bar .label { font-size: calc(6.6 * var(--u) * var(--sf) / .74); }
+.bar .drink { display: grid; gap: calc(.5 * var(--u)); }
+.bar .dname { font-size: calc(3.36 * var(--u)); letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+.bar .ddesc:empty { display: none; }
+.bar .ddesc { font-size: calc(3.71 * var(--u)); font-style: italic; line-height: 1.3; }
+.bar .dlist { font-size: calc(3.13 * var(--u)); letter-spacing: .1em; text-transform: uppercase; font-weight: 600; line-height: 1.9; }
+.bar .sign { font-size: calc(3.36 * var(--u)); letter-spacing: .22em; text-transform: uppercase; font-weight: 600; }
+
+/* Placards */
+.placard .inner { gap: calc(1.8 * var(--u)); }
+.placard .dish { font-size: calc(7 * var(--u)); letter-spacing: .07em; margin-right: -.07em; text-transform: uppercase; font-weight: 600; line-height: 1.1; }
+.placard .desc { font-size: calc(5.57 * var(--u)); font-style: italic; line-height: 1.3; }
+.placard .tag { display: inline-flex; align-items: center; gap: calc(1.8 * var(--u)); font-size: calc(3 * var(--u)); letter-spacing: .16em; font-weight: 600; text-transform: uppercase; font-weight: 500; margin-top: calc(.8 * var(--u)); }
+.diet { all: unset; display: inline-flex; align-items: center; gap: calc(1.8 * var(--u)); cursor: pointer; border-radius: 2px; }
+.diet:focus-visible { outline: 2px solid #8c8457; outline-offset: 2px; }
+.mark { width: calc(3 * var(--u)); height: calc(3 * var(--u)); border: 1px solid; display: inline-grid; place-items: center; flex: none; }
+.diet[data-diet="veg"] .mark { border-color: #3f8a4a; }
+.diet[data-diet="veg"] .mark::after { content: ""; width: 55%; height: 55%; border-radius: 50%; background: #3f8a4a; }
+.diet[data-diet="nonveg"] .mark { border-color: #8a4b2a; }
+.diet[data-diet="nonveg"] .mark::after { content: ""; width: 0; height: 0; border-left: calc(.85 * var(--u)) solid transparent; border-right: calc(.85 * var(--u)) solid transparent; border-bottom: calc(1.5 * var(--u)) solid #8a4b2a; }
+.diet[data-diet="none"] .mark { display: none; }
+.diet[data-diet="none"] span { opacity: .35; }
+
+/* Photobooth overlay */
+.booth .photo { position: absolute; inset: 0; background: repeating-conic-gradient(#e2ded3 0% 25%, #f1eee7 0% 50%) 0 0 / 22px 22px; }
+.booth .photo span { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); font: 500 .7rem/1.4 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: var(--table-muted); background: rgba(255,255,255,.8); padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
+.booth .inner { justify-content: flex-end; }
+.booth .names { font-size: calc(9.5 * var(--u) * var(--sf) / .74); }
+.booth .cap { font-size: calc(3.02 * var(--u)); letter-spacing: .2em; text-transform: uppercase; font-weight: 600; margin-top: calc(.8 * var(--u)) !important; }
+
+/* Welcome board */
+.board .inner { justify-content: flex-start; }
+.board .welcome { font-size: calc(9.6 * var(--u)); letter-spacing: .22em; margin-right: -.22em; font-weight: 500; text-transform: uppercase; line-height: 1; }
+.board .sub { font-size: calc(3.13 * var(--u)); letter-spacing: .22em; text-transform: uppercase; font-weight: 600; margin-top: calc(2.6 * var(--u)) !important; }
+.board .names { font-size: calc(10.5 * var(--u) * var(--sf) / .74); margin-top: calc(3.4 * var(--u)) !important; }
+.board .bdate { font-size: calc(3.48 * var(--u)); letter-spacing: .26em; font-weight: 600; margin-top: calc(2.2 * var(--u)) !important; font-variant-numeric: lining-nums; }
+
+
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+/* Extra layers: bar drawing watermark and paw prints */
+.wm { position: absolute; inset: 0; pointer-events: none; }
+.wm svg { width: 100%; height: 100%; display: block; }
+.paw { position: absolute; z-index: 3; cursor: grab; touch-action: none; }
+.paw svg { display: block; width: 100%; height: auto; overflow: visible; }
+.paw:hover { filter: drop-shadow(0 0 1px rgba(140,132,87,.6)); }
+body.exporting .paw:hover { filter: none; }
+.hole { position: absolute; z-index: 3; left: 45cqw; top: 6cqw; width: 10cqw; pointer-events: none; }
+.hole svg { display: block; width: 100%; height: auto; }
+body.no-hole .hole { display: none; }
+body.no-paws .paw, .card.no-paw .paw { display: none; }
+.bm-pair { display: flex; flex-wrap: wrap; gap: 24px; }
+.bm-pair figure { margin: 0; display: grid; gap: 8px; justify-items: start; }
+.bm-pair figcaption { display: flex; align-items: center; gap: 10px; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--table-muted); }
+.thanks .bk-names { font-size: calc(12 * var(--u) * var(--sf) / .74); text-align: center; }
+.thanks .bk-cap { font-size: calc(3.4 * var(--u)); line-height: 1.8; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; margin-top: calc(3 * var(--u)) !important; }
+.size-sel { font: 500 .78rem/1 var(--ui); color: var(--table-ink); background: var(--chip); border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; max-width: 100%; }
+.tool-label { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--table-muted); }
+.hint { font-size: .78rem; color: var(--table-muted); }
+.arrange-bar .op { font-size: .78rem; }
+.is-hidden { visibility: hidden; }
+
+/* Tool row and arrange mode */
+.tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+.tools .sep { width: 1px; height: 22px; background: var(--line); }
+.btn.strong { background: var(--table-ink); color: var(--chip); border-color: var(--table-ink); }
+.btn.strong:hover { background: #3a3729; }
+.btn:disabled { opacity: .45; cursor: default; }
+.check { display: inline-flex; gap: 8px; align-items: center; font-size: .82rem; color: var(--table-muted); }
+.addtext-btn { padding: 6px 12px; font-size: .74rem; align-self: center; }
+.card > .added { position: absolute; z-index: 2; margin: 0; text-align: center; font-family: var(--display); }
+.card > .free { font-size: calc(4.6 * var(--u)); letter-spacing: .14em; text-transform: uppercase; font-weight: 600; line-height: 1.3; white-space: pre-line; }
+.dl { display: flex; gap: 4px; align-self: center; }
+.dl .btn { padding: 6px 10px; font-size: .72rem; }
+.arrange-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 16px; background: var(--chip); border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; box-shadow: 0 10px 24px -14px rgba(70,60,35,.45); }
+.arrange-bar p { margin: 0; font-size: .8rem; color: var(--table-muted); line-height: 1.5; }
+.arrange-bar b { color: var(--table-ink); font-weight: 500; }
+.arrange-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+/* Editor: always on. Items show a dashed outline on hover; selected ones get a solid frame drawn above the page. */
+.card { user-select: none; -webkit-user-select: none; touch-action: none; }
+.card .inner { pointer-events: none; }
+.card [data-m] { pointer-events: auto; cursor: move; }
+.card .wm { pointer-events: none; }
+.card .hole { pointer-events: auto; }
+.card [data-m]:not(.wm):hover { outline: 1px dashed rgba(71,74,32,.35); outline-offset: 2px; }
+.card .flora [data-f] { pointer-events: visiblePainted; cursor: move; }
+.card .flora [data-f]:hover { opacity: .8; }
+.card [contenteditable="plaintext-only"], .card [contenteditable="true"] { cursor: text; user-select: text; -webkit-user-select: text; outline: 2px solid #8c8457 !important; outline-offset: 3px; background: rgba(255,255,255,.55); }
+.is-hidden { opacity: .2 !important; outline: 1px dashed rgba(71,74,32,.5); }
+body.exporting .is-hidden { visibility: hidden !important; }
+body.exporting .card [data-m] { outline: none !important; }
+.selbox { position: absolute; z-index: 30; border: 1.5px solid #6f6a3c; border-radius: 2px; pointer-events: none; box-shadow: 0 0 0 3px rgba(252,250,244,.65); }
+.marquee { position: fixed; z-index: 31; border: 1px solid #6f6a3c; background: rgba(140,132,87,.12); pointer-events: none; }
+.howto { margin: 0; font-size: .82rem; color: var(--table-muted); line-height: 1.5; }
+.howto b { color: var(--table-ink); font-weight: 500; }
+.selbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; background: var(--chip); border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; box-shadow: 0 10px 24px -14px rgba(70,60,35,.45); }
+.sel-name { font-size: .82rem; font-weight: 500; color: var(--table-ink); min-width: 10ch; }
+.slider { display: inline-flex; align-items: center; gap: 6px; font-size: .76rem; color: var(--table-muted); }
+.slider input { width: 110px; }
+.slider output { min-width: 4ch; font-variant-numeric: tabular-nums; color: var(--table-ink); }
+.sel-btns { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; }
+.filter { display: grid; gap: 10px; padding-top: 4px; }
+.frow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.filter .fmain { min-width: 9.5em; font-weight: 600; }
+.panel-rule { height: 1px; background: #e6e6e6; }
+.filter button { font: 500 .8rem/1 var(--ui); color: var(--table-ink); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 8px 13px; cursor: pointer; }
+.filter button[aria-pressed="true"] { background: var(--table-ink); color: var(--chip); border-color: var(--table-ink); }
+.filter .fsep { width: 1px; height: 20px; background: var(--line); margin-inline: 4px; }
+.group-block { display: grid; gap: 44px; }
+.group-title { margin: 8px 0 0; font-family: var(--display); font-weight: 500; font-size: 1.05rem; letter-spacing: .26em; text-transform: uppercase; color: var(--table-muted); }
+
+body.exporting .photo, body.exporting .guides { display: none !important; }
+body.exporting [contenteditable]:hover { background: none; }
+
+/* Control panel: plain white with black type and controls */
+.panel, .selbar { --chip: #ffffff; --table-ink: #111111; --table-muted: #5c5c5c; --line: #dcdcdc; }
+.panel { display: grid; gap: 18px; background: #ffffff; color: #111111; border: 1px solid #e2e2e2; border-radius: 16px; padding: 18px 20px; }
+.panel header h1 { color: #111111; }
+.panel .seg { background: #ffffff; }
+.panel .btn:hover, .panel .seg button:hover:not([aria-pressed="true"]), .selbar .btn:hover { background: #f2f2f2; }
+.panel .btn.strong:hover, .selbar .btn.strong:hover { background: #333333; }
+.panel input[type="range"], .selbar input[type="range"], .panel input[type="checkbox"] { accent-color: #111111; }
+.selbar { background: #ffffff; border-color: #dcdcdc; }
+.status { min-height: 1.2em; font-size: .78rem; color: var(--table-muted); text-align: center; }
+@media (max-width: 640px) { header h1 { font-size: 1.6rem; } .pair { gap: 32px; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <div class="panel">
+  <header>
+    <div>
+      <h1>Housewarming 1804</h1>
+    </div>
+    <div class="controls">
+      <div class="group"><span>Palette</span>
+        <div class="seg" id="pal">
+          <button type="button" data-v="meadow" aria-pressed="true"><i class="sw" style="background:linear-gradient(135deg,#c4435c 33%,#e0ad35 33% 66%,#7d68b0 66%)"></i>Meadow</button>
+          <button type="button" data-v="blue" aria-pressed="false"><i class="sw" style="background:linear-gradient(135deg,#6f8fb8 50%,#b9cbe0 50%)"></i>Dusty blue</button>
+          <button type="button" data-v="blush" aria-pressed="false"><i class="sw" style="background:linear-gradient(135deg,#df9c8e 50%,#e2b95a 50%)"></i>Blush &amp; ochre</button>
+        </div>
+      </div>
+      <div class="group"><span>Lettering</span>
+        <div class="seg" id="letter">
+          <button type="button" data-v="classic" aria-pressed="true">Classic script</button>
+          <button type="button" data-v="soft" aria-pressed="false">Soft script</button>
+          <button type="button" data-v="italic" aria-pressed="false">Italic serif</button>
+        </div>
+      </div>
+      <div class="group"><span>Florals · all pieces</span>
+        <div class="seg" id="lay">
+          <button type="button" data-v="scatter" aria-pressed="true">Scattered</button>
+          <button type="button" data-v="meadow" aria-pressed="false">Meadow border</button>
+          <button type="button" data-v="bouquet" aria-pressed="false">Side bouquet</button>
+        </div>
+      </div>
+      <div class="group"><span>&nbsp;</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="btn" id="shuffle">New arrangement</button>
+          <button type="button" class="btn" id="reset">Reset wording</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="tools">
+    <button type="button" class="btn" id="undoBtn" title="Undo (Ctrl or Cmd + Z)">Undo</button>
+    <button type="button" class="btn" id="redoBtn" title="Redo (Shift + Ctrl or Cmd + Z)">Redo</button>
+    <span class="sep"></span>
+    <button type="button" class="btn" id="saveDesign">Save design</button>
+    <button type="button" class="btn" id="openDesign">Open design</button>
+    <input type="file" id="openFile" accept=".json,application/json" hidden>
+    <span class="sep"></span>
+    <div class="seg" id="quality" role="group" aria-label="Image quality for downloads">
+      <button type="button" data-v="300" aria-pressed="true">Standard · 300 dpi</button>
+      <button type="button" data-v="600" aria-pressed="false">Extra sharp · 600 dpi</button>
+    </div>
+    <label class="check"><input type="checkbox" id="bleed"> Add 3 mm bleed to PDFs (for print shops)</label>
+  </div>
+  <div class="tools">
+    <span class="tool-label">Paws · all pieces</span>
+    <div class="seg" id="pawStyle" role="group" aria-label="Paw style">
+      <button type="button" data-v="wash" aria-pressed="true">Watercolour</button>
+      <button type="button" data-v="petal" aria-pressed="false">Petal pads</button>
+      <button type="button" data-v="line" aria-pressed="false">Fine outline</button>
+      <button type="button" data-v="black" aria-pressed="false">Solid black</button>
+    </div>
+    <label class="check" for="pawOp">Strength <input type="range" id="pawOp" min="15" max="100" step="5" value="90"> <output id="pawOpOut">90%</output></label>
+    <label class="check"><input type="checkbox" id="pawShow" checked> Show paws on every piece</label>
+  </div>
+  <div class="panel-rule"></div>
+  <nav class="filter" id="filter" aria-label="Show pieces">
+    <div class="frow"><button type="button" data-show="all">Everything</button></div>
+    <div class="frow">
+      <button type="button" class="fmain" data-show="guests">Aru Print</button>
+      <button type="button" data-show="invite">Invitation</button>
+      <button type="button" data-show="thanks">Bookmark</button>
+      <button type="button" data-show="booth">Photobooth</button>
+      <button type="button" data-show="board">Welcome board</button>
+    </div>
+    <div class="frow">
+      <button type="button" class="fmain" data-show="food">Catering</button>
+      <button type="button" data-show="menu">Menu</button>
+      <button type="button" data-show="bar">Bar menu</button>
+      <button type="button" data-show="placard">Placards</button>
+    </div>
+  </nav>
+  </div>
+  <div class="selbar" id="selBar" hidden>
+    <span class="sel-name" id="selName"></span>
+    <label class="slider">Size <input type="range" id="scRange" min="20" max="300" step="5" value="100"> <output id="scOut">100%</output></label>
+    <label class="slider">Rotate <input type="range" id="rotRange" min="-180" max="180" step="1" value="0"> <output id="rotOut">0°</output></label>
+    <label class="slider">Opacity <input type="range" id="opRange" min="0" max="100" step="5" value="100"> <output id="opOut">100%</output></label>
+    <span class="sel-btns">
+      <button type="button" class="btn" id="dupBtn" title="Duplicate (Ctrl or Cmd + D)">Duplicate</button>
+      <button type="button" class="btn" id="addTextBtn2">Add text</button>
+      <button type="button" class="btn" id="pawsBtn">Select all paws</button>
+      <button type="button" class="btn" id="hideBtn">Hide</button>
+      <button type="button" class="btn" id="delBtn">Delete</button>
+      <button type="button" class="btn" id="resetItemBtn">Reset</button>
+      <button type="button" class="btn" id="resetCardBtn">Reset whole card</button>
+      <button type="button" class="btn strong" id="deselectBtn">Done</button>
+    </span>
+  </div>
+
+  <div class="group-block" data-group="guests">
+    <h2 class="group-title">Aru Print</h2>
+    <section class="piece" data-piece="invite">
+      <div class="piece-head"><h2>Invitation</h2><button type="button" class="btn addtext-btn">+ Add text</button><select class="size-sel" data-for="invite" aria-label="Size"></select><select class="size-sel paw-sel" data-for="invite" aria-label="Paw style for this piece"><option value="">Paws: as above</option><option value="wash">Paws: watercolour</option><option value="petal">Paws: petal pads</option><option value="line">Paws: fine outline</option><option value="black">Paws: solid black</option><option value="none">No paws</option></select><div class="seg mini" data-for="invite" role="group" aria-label="Florals for this piece"><button type="button" data-v="scatter" aria-pressed="true">Scattered</button><button type="button" data-v="meadow" aria-pressed="false">Meadow</button><button type="button" data-v="bouquet" aria-pressed="false">Bouquet</button></div><div class="dl"><button type="button" class="btn" data-act="pdf">PDF</button><button type="button" class="btn" data-act="png">PNG</button><button type="button" class="btn" data-act="print">Print</button></div></div>
+      <label class="maprow" for="mapUrl">Map link <input type="url" id="mapUrl" spellcheck="false" placeholder="https://maps.app.goo.gl/UAkCJpnYBRX5yzM18"> <a id="mapOpen" href="#" target="_blank" rel="noopener">Open</a></label>
+      <div class="card invite" data-w="500" data-h="700" data-fs="1" data-kind="invite">
+        <svg class="flora" aria-hidden="true"></svg>
+        <div class="inner">
+          <p class="eyebrow" data-k="inv-pre" contenteditable="plaintext-only" spellcheck="false">The Singh family invites you to a</p>
+          <h3 class="title" data-k="inv-title" contenteditable="plaintext-only" spellcheck="false">Housewarming</h3>
+          <p class="script lead" data-k="inv-lead" contenteditable="plaintext-only" spellcheck="false">come celebrate our new home</p>
+          <div class="dots"></div>
+          <div class="when">
+            <div class="side" data-k="day-month" contenteditable="plaintext-only" spellcheck="false">Saturday
+November</div>
+            <div class="mid"><div class="day" data-k="day-num" contenteditable="plaintext-only" spellcheck="false">14</div><div class="side" data-k="year" contenteditable="plaintext-only" spellcheck="false">2026</div></div>
+            <div class="side" data-k="time" contenteditable="plaintext-only" spellcheck="false">6:30 pm
+onwards</div>
+          </div>
+          <div class="dots"></div>
+          <p class="script at">at</p>
+          <p class="place" data-k="address" contenteditable="plaintext-only" spellcheck="false">B-1804, Mahindra Luminare
+Ghata, Haryana 122098</p>
+          <p class="map-link"><a id="mapLink" href="" target="_blank" rel="noopener">View location on Google Maps</a></p>
+          <p class="rsvp" data-k="inv-rsvp" contenteditable="plaintext-only" spellcheck="false">RSVP to the Singh family · 88006 88709</p>
+        </div>
+      </div>
+    </section>
+    <section class="piece" data-piece="thanks">
+      <div class="piece-head"><h2>Thank-you bookmark</h2><button type="button" class="btn addtext-btn">+ Add text</button><select class="size-sel" data-for="thanks" aria-label="Size"></select><select class="size-sel paw-sel" data-for="thanks" aria-label="Paw style for this piece"><option value="">Paws: as above</option><option value="wash">Paws: watercolour</option><option value="petal">Paws: petal pads</option><option value="line">Paws: fine outline</option><option value="black">Paws: solid black</option><option value="none">No paws</option></select><div class="dl"><button type="button" class="btn" data-act="pdf">PDF (front + back)</button><button type="button" class="btn" data-act="png">PNG</button><button type="button" class="btn" data-act="sheet">A4 sheet PDF</button><button type="button" class="btn" data-act="print">Print</button></div></div>
+      <label class="check"><input type="checkbox" id="hole" checked> Show tassel hole mark</label>
+      <div class="bm-pair">
+        <figure><figcaption>Front <div class="seg mini" data-for="thanks" role="group" aria-label="Florals for the front"><button type="button" data-v="scatter" aria-pressed="true">Scattered</button><button type="button" data-v="meadow" aria-pressed="false">Meadow</button><button type="button" data-v="bouquet" aria-pressed="false">Bouquet</button></div></figcaption>
+      <div class="card thanks" data-w="400" data-h="1120" data-fs="1" data-kind="thanks">
+        <svg class="flora" aria-hidden="true"></svg>
+        <div class="inner">
+          <h3 class="thank">Thank</h3>
+          <p class="script you">you</p>
+          <p class="note" data-k="t-note" contenteditable="plaintext-only" spellcheck="false">for filling our new home
+with laughter on its
+very first evening.
+
+Come back soon.
+The door is always open.</p>
+          <p class="script from" data-k="names" contenteditable="plaintext-only" spellcheck="false">The Singh Family</p>
+          <p class="date-s" data-k="date-short" contenteditable="plaintext-only" spellcheck="false">14 · 11 · 2026</p>
+        </div>
+      </div>
+        </figure>
+        <figure><figcaption>Back <div class="seg mini" data-for="thanks-back" role="group" aria-label="Florals for the back"><button type="button" data-v="scatter" aria-pressed="true">Scattered</button><button type="button" data-v="meadow" aria-pressed="false">Meadow</button><button type="button" data-v="bouquet" aria-pressed="false">Bouquet</button></div></figcaption>
+      <div class="card thanks back" data-w="400" data-h="1120" data-fs="1" data-kind="thanks" data-side="back">
+        <svg class="flora" aria-hidden="true"></svg>
+        <div class="inner">
+          <p class="script bk-names" data-k="names" contenteditable="plaintext-only" spellcheck="false">The Singh Family</p>
+          <p class="bk-cap" data-k="bk-cap2" contenteditable="plaintext-only" spellcheck="false">Housewarming
+14 · 11 · 2026</p>
+        </div>
+      </div>
+        </figure>
+      </div>
+    </section>
+    <section class="piece" data-piece="booth">
+      <div class="piece-head"><h2>Photobooth frame</h2><button type="button" class="btn addtext-btn">+ Add text</button><select class="size-sel" data-for="booth" aria-label="Size"></select><select class="size-sel paw-sel" data-for="booth" aria-label="Paw style for this piece"><option value="">Paws: as above</option><option value="wash">Paws: watercolour</option><option value="petal">Paws: petal pads</option><option value="line">Paws: fine outline</option><option value="black">Paws: solid black</option><option value="none">No paws</option></select><div class="seg mini" data-for="booth" role="group" aria-label="Florals for this piece"><button type="button" data-v="scatter" aria-pressed="true">Scattered</button><button type="button" data-v="meadow" aria-pressed="false">Meadow</button><button type="button" data-v="bouquet" aria-pressed="false">Bouquet</button></div><div class="dl"><button type="button" class="btn" data-act="png">PNG</button><button type="button" class="btn" data-act="print">Print</button></div></div>
+      <div class="amount"><span>Flowers on the frame</span>
+        <div class="seg mini" id="boothAmt" role="group" aria-label="Amount of flowers on the photobooth frame">
+          <button type="button" data-v="1" aria-pressed="true">Light</button>
+          <button type="button" data-v="1.7" aria-pressed="false">More</button>
+          <button type="button" data-v="2.6" aria-pressed="false">Lots</button>
+          <button type="button" data-v="3.6" aria-pressed="false">Full</button>
+        </div>
+      </div>
+      <div class="card booth" data-w="540" data-h="675" data-fs="1.05" data-kind="booth">
+        <div class="photo"><span>Guest photo shows here</span></div>
+        <svg class="frame" aria-hidden="true"></svg>
+        <svg class="flora" aria-hidden="true"></svg>
+        <div class="inner">
+          <p class="script names" data-k="names" contenteditable="plaintext-only" spellcheck="false">The Singh Family</p>
+          <p class="cap" data-k="booth-cap" contenteditable="plaintext-only" spellcheck="false">Housewarming · 14 · 11 · 2026</p>
+        </div>
+      </div>
+    </section>
+    <section class="piece" data-piece="board">
+      <div class="piece-head"><h2>Welcome board</h2><button type="button" class="btn addtext-btn">+ Add text</button><select class="size-sel" data-for="board" aria-label="Size"></select><select class="size-sel paw-sel" data-for="board" aria-label="Paw style for this piece"><option value="">Paws: as above</option><option value="wash">Paws: watercolour</option><option value="petal">Paws: petal pads</option><option value="line">Paws: fine outline</option><option value="black">Paws: solid black</option><option value="none">No paws</option></select><div class="seg mini" data-for="board" role="group" aria-label="Florals for this piece"><button type="button" data-v="scatter" aria-pressed="true">Scattered</button><button type="button" data-v="meadow" aria-pressed="false">Meadow</button><button type="button" data-v="bouquet" aria-pressed="false">Bouquet</button></div><div class="dl"><button type="button" class="btn" data-act="pdf">PDF</button><button type="button" class="btn" data-act="png">PNG</button><button type="button" class="btn" data-act="print">Print</button></div></div>
+      <div class="card board" data-w="1800" data-h="2400" data-fs="3.6" data-kind="board">
+        <svg class="flora" aria-hidden="true"></svg>
+        <div class="inner">
+          <h3 class="welcome" data-k="b-welcome" contenteditable="plaintext-only" spellcheck="false">Welcome</h3>
+          <p class="sub" data-k="b-sub" contenteditable="plaintext-only" spellcheck="false">to our new home</p>
+          <p class="script names" data-k="names" contenteditable="plaintext-only" spellcheck="false">The Singh Family</p>
+          <p class="bdate" data-k="date-short" contenteditable="plaintext-only" spellcheck="false">14 · 11 · 2026</p>
+        </div>
+      </div>
+      <label style="display:flex;gap:8px;align-items:center;font-size:.82rem;color:var(--table-muted)"><input type="checkbox" id="guides" checked> Show test-tube outlines</label>
+    </section>
+  </div>
+
+  <div class="group-block" data-group="food">
+    <h2 class="group-title">Catering</h2>
+    <section class="piece" data-piece="menu">
+      <div class="piece-head"><h2>Menu</h2><button type="button" class="btn addtext-btn">+ Add text</button><select class="size-sel" data-for="menu" aria-label="Size"></select><select class="size-sel paw-sel" data-for="menu" aria-label="Paw style for this piece"><option value="">Paws: as above</option><option value="wash">Paws: watercolour</option><option value="petal">Paws: petal pads</option><option value="line">Paws: fine outline</option><option value="black">Paws: solid black</option><option value="none">No paws</option></select><div class="seg mini" data-for="menu" role="group" aria-label="Florals for this piece"><button type="button" data-v="scatter" aria-pressed="true">Scattered</button><button type="button" data-v="meadow" aria-pressed="false">Meadow</button><button type="button" data-v="bouquet" aria-pressed="false">Bouquet</button></div><div class="dl"><button type="button" class="btn" data-act="pdf">PDF</button><button type="button" class="btn" data-act="png">PNG</button><button type="button" class="btn" data-act="print">Print</button></div></div>
+      <div class="card menu" data-w="583" data-h="827" data-fs="1.1" data-kind="menu">
+        <svg class="flora" aria-hidden="true"></svg>
+        <div class="inner">
+          <h3 class="menu-h">Menu</h3>
+          <div class="courses">
+            <div class="course">
+              <p class="script label" data-k="m2-c1" contenteditable="plaintext-only" spellcheck="false">Appetizers</p>
+              <p class="dishes" data-k="m2-d1" contenteditable="plaintext-only" spellcheck="false">Lamb Galouti with Narangi Sheermal
+Amritsari Fish Pops
+Chicken Satay
+Aloo Tikki Jars
+Dilli 6 Paneer Tikka</p>
+            </div>
+            <div class="course">
+              <p class="script label" data-k="m2-c2" contenteditable="plaintext-only" spellcheck="false">Mains</p>
+              <p class="dishes" data-k="m2-d2" contenteditable="plaintext-only" spellcheck="false">Awadhi Lamb Biryani with Burani Raita
+Butter Chicken &amp; Naan
+Paneer Makhani &amp; Malabar Paratha
+Kashmiri Pulao
+Yellow Tadka Dal</p>
+            </div>
+            <div class="course">
+              <p class="script label" data-k="m2-c3" contenteditable="plaintext-only" spellcheck="false">Desserts</p>
+              <p class="dishes" data-k="m2-d3" contenteditable="plaintext-only" spellcheck="false">Guava Cheesecake
+Baileys Crème Brûlée
+Dark Chocolate &amp; Sour Cherry Elegance</p>
+            </div>
+            <div class="course">
+              <p class="script label" data-k="m2-c4" contenteditable="plaintext-only" spellcheck="false">After dinner</p>
+              <p class="dishes" data-k="m2-d4" contenteditable="plaintext-only" spellcheck="false">Clear Tea Service</p>
+            </div>
+          </div>
+          <p class="sign" data-k="names-caps" contenteditable="plaintext-only" spellcheck="false">The Singh Family</p>
+          <p class="date-s" data-k="date-short" contenteditable="plaintext-only" spellcheck="false">14 · 11 · 2026</p>
+        </div>
+      </div>
+    </section>
+    <section class="piece" data-piece="bar">
+      <div class="piece-head"><h2>Bar menu</h2><button type="button" class="btn addtext-btn">+ Add text</button><select class="size-sel" data-for="bar" aria-label="Size"></select><select class="size-sel paw-sel" data-for="bar" aria-label="Paw style for this piece"><option value="">Paws: as above</option><option value="wash">Paws: watercolour</option><option value="petal">Paws: petal pads</option><option value="line">Paws: fine outline</option><option value="black">Paws: solid black</option><option value="none">No paws</option></select><div class="seg mini" data-for="bar" role="group" aria-label="Florals for this piece"><button type="button" data-v="scatter" aria-pressed="true">Scattered</button><button type="button" data-v="meadow" aria-pressed="false">Meadow</button><button type="button" data-v="bouquet" aria-pressed="false">Bouquet</button></div><div class="dl"><button type="button" class="btn" data-act="pdf">PDF</button><button type="button" class="btn" data-act="png">PNG</button><button type="button" class="btn" data-act="print">Print</button></div></div>
+      <label class="amount" for="wmRange">Bar drawing strength <input type="range" id="wmRange" min="0" max="20" step="1" value="7"> <output id="wmOut">7%</output></label>
+      <div class="card bar" data-w="500" data-h="700" data-fs="1" data-kind="bar">
+        <svg class="flora" aria-hidden="true"></svg>
+        <div class="inner">
+          <h3 class="bar-h" data-k="bar-title" contenteditable="plaintext-only" spellcheck="false">Bar</h3>
+          <div class="sections">
+            <div class="sect">
+              <p class="script label" data-k="bar2-s1" contenteditable="plaintext-only" spellcheck="false">Signature cocktails</p>
+              <div class="drink"><p class="dname" data-k="bar2-d1" contenteditable="plaintext-only" spellcheck="false">Clover Club</p><p class="ddesc" data-k="bar3-d1s" contenteditable="plaintext-only" spellcheck="false">gin, raspberry, homemade berry cordial, lime, egg &amp; aromatic bitters</p></div>
+              <div class="drink"><p class="dname" data-k="bar2-d2" contenteditable="plaintext-only" spellcheck="false">Paloma</p><p class="ddesc" data-k="bar3-d2s" contenteditable="plaintext-only" spellcheck="false">tequila, grapefruit juice, grapefruit salt, lime &amp; bubbles</p></div>
+              <div class="drink"><p class="dname" data-k="bar2-d3" contenteditable="plaintext-only" spellcheck="false">Garden Essence</p><p class="ddesc" data-k="bar3-d3s" contenteditable="plaintext-only" spellcheck="false">vodka, Nas Narang, kaffir lime &amp; citrus</p></div>
+            </div>
+            <div class="sect">
+              <p class="script label" data-k="bar2-s2" contenteditable="plaintext-only" spellcheck="false">The classics</p>
+              <p class="dlist" data-k="bar2-classics" contenteditable="plaintext-only" spellcheck="false">Cosmopolitan · Bloody Mary · Mojito
+Sex on the Beach · Tom Collins</p>
+            </div>
+            <div class="sect">
+              <p class="script label" data-k="bar2-s3" contenteditable="plaintext-only" spellcheck="false">Also pouring</p>
+              <p class="dlist" data-k="bar2-also" contenteditable="plaintext-only" spellcheck="false">Whisky · Gin &amp; Tonic · Vodka · Rum</p>
+            </div>
+            <div class="sect">
+              <p class="script label" data-k="bar2-s4" contenteditable="plaintext-only" spellcheck="false">Zero proof</p>
+              <p class="ddesc" data-k="bar2-zero" contenteditable="plaintext-only" spellcheck="false">Any cocktail can be made virgin.
+Soft drinks are also available.</p>
+            </div>
+          </div>
+          <p class="sign" data-k="names-caps" contenteditable="plaintext-only" spellcheck="false">The Singh Family</p>
+          <p class="date-s" data-k="date-short" contenteditable="plaintext-only" spellcheck="false">14 · 11 · 2026</p>
+        </div>
+      </div>
+    </section>
+    <section class="piece" data-piece="placard">
+      <div class="piece-head"><h2>Menu placards</h2><button type="button" class="btn addtext-btn">+ Add text</button><select class="size-sel" data-for="placard" aria-label="Size"></select><select class="size-sel paw-sel" data-for="placard" aria-label="Paw style for this piece"><option value="">Paws: as above</option><option value="wash">Paws: watercolour</option><option value="petal">Paws: petal pads</option><option value="line">Paws: fine outline</option><option value="black">Paws: solid black</option><option value="none">No paws</option></select><div class="seg mini" data-for="placard" role="group" aria-label="Florals for this piece"><button type="button" data-v="scatter" aria-pressed="true">Scattered</button><button type="button" data-v="meadow" aria-pressed="false">Meadow</button><button type="button" data-v="bouquet" aria-pressed="false">Bouquet</button></div><div class="dl"><button type="button" class="btn" data-act="sheet">A4 sheet PDF</button><button type="button" class="btn" data-act="printsheet">Print sheet</button><button type="button" class="btn" data-act="pdf">Each as PDF</button><button type="button" class="btn" data-act="png">PNGs</button></div>
+        <p>One label per dish for the buffet. Click the food mark under a dish to switch between vegetarian (green), non-vegetarian (brown) and no mark.</p></div>
+      <div class="placards">
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl1-d" contenteditable="plaintext-only" spellcheck="false">Lamb Galouti</h3>
+            <p class="desc" data-k="pl1-s" contenteditable="plaintext-only" spellcheck="false">with narangi sheermal</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl1-diet" data-diet="nonveg" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl2-d" contenteditable="plaintext-only" spellcheck="false">Amritsari Fish Pops</h3>
+            <p class="desc" data-k="pl2-s" contenteditable="plaintext-only" spellcheck="false">appetizer</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl2-diet" data-diet="nonveg" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl3-d" contenteditable="plaintext-only" spellcheck="false">Chicken Satay</h3>
+            <p class="desc" data-k="pl3-s" contenteditable="plaintext-only" spellcheck="false">appetizer</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl3-diet" data-diet="nonveg" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl4-d" contenteditable="plaintext-only" spellcheck="false">Aloo Tikki Jars</h3>
+            <p class="desc" data-k="pl4-s" contenteditable="plaintext-only" spellcheck="false">appetizer</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl4-diet" data-diet="veg" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl5-d" contenteditable="plaintext-only" spellcheck="false">Dilli 6 Paneer Tikka</h3>
+            <p class="desc" data-k="pl5-s" contenteditable="plaintext-only" spellcheck="false">appetizer</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl5-diet" data-diet="veg" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl6-d" contenteditable="plaintext-only" spellcheck="false">Awadhi Lamb Biryani</h3>
+            <p class="desc" data-k="pl6-s" contenteditable="plaintext-only" spellcheck="false">with burani raita</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl6-diet" data-diet="nonveg" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl7-d" contenteditable="plaintext-only" spellcheck="false">Butter Chicken</h3>
+            <p class="desc" data-k="pl7-s" contenteditable="plaintext-only" spellcheck="false">with naan</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl7-diet" data-diet="nonveg" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl8-d" contenteditable="plaintext-only" spellcheck="false">Paneer Makhani</h3>
+            <p class="desc" data-k="pl8-s" contenteditable="plaintext-only" spellcheck="false">with malabar paratha</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl8-diet" data-diet="veg" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl9-d" contenteditable="plaintext-only" spellcheck="false">Kashmiri Pulao</h3>
+            <p class="desc" data-k="pl9-s" contenteditable="plaintext-only" spellcheck="false">main</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl9-diet" data-diet="veg" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl10-d" contenteditable="plaintext-only" spellcheck="false">Yellow Tadka Dal</h3>
+            <p class="desc" data-k="pl10-s" contenteditable="plaintext-only" spellcheck="false">main</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl10-diet" data-diet="veg" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl11-d" contenteditable="plaintext-only" spellcheck="false">Guava Cheesecake</h3>
+            <p class="desc" data-k="pl11-s" contenteditable="plaintext-only" spellcheck="false">dessert</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl11-diet" data-diet="none" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl12-d" contenteditable="plaintext-only" spellcheck="false">Baileys Crème Brûlée</h3>
+            <p class="desc" data-k="pl12-s" contenteditable="plaintext-only" spellcheck="false">dessert</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl12-diet" data-diet="none" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+        <div class="card placard" data-w="350" data-h="200" data-fs=".6" data-kind="placard">
+          <svg class="flora" aria-hidden="true"></svg>
+          <div class="inner">
+            <h3 class="dish" data-k="pl13-d" contenteditable="plaintext-only" spellcheck="false">Dark Chocolate &amp; Sour Cherry Elegance</h3>
+            <p class="desc" data-k="pl13-s" contenteditable="plaintext-only" spellcheck="false">dessert</p>
+            <p class="tag"><button type="button" class="diet" data-dk="pl13-diet" data-diet="none" title="Click to change the food mark"><i class="mark"></i><span></span></button></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <p class="status" id="status" aria-live="polite"></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function () {
+  const PALETTES = {
+    meadow: { ink: '#474a20', leaf: '#7b8748', stem: '#8a8a52', blooms: ['#c4435c', '#7d68b0', '#e0ad35', '#5b7fc4', '#b4553c', '#d98aa0', '#9a3a52'], lace: '#fffdf7', laceEdge: '#c9bf9c', center: '#9b6d22', purple: '#7d68b0' },
+    blue:   { ink: '#304765', leaf: '#8b9a7c', stem: '#98a48a', blooms: ['#6f8fb8', '#9db5d3', '#4f6f9b', '#b9cbe0', '#a99ac2', '#7d9cc4'], lace: '#fdfdfb', laceEdge: '#b9c4cf', center: '#c9a24a', purple: '#8c92c4' },
+    blush:  { ink: '#663d2b', leaf: '#9a9a6a', stem: '#a3a074', blooms: ['#df9c8e', '#d4806a', '#e2b95a', '#c26b6b', '#eab8a6', '#cf9f6e'], lace: '#fffcf6', laceEdge: '#d6c3a7', center: '#a96b2c', purple: '#b88aa0' }
+  };
+  const state = { pal: 'meadow', lays: {}, salt: 1, guides: true, boothAmt: 1, letter: 'classic' };
+  try { const pr = JSON.parse(localStorage.getItem('wildflower-suite-prefs') || '{}'); if (pr.boothAmt) state.boothAmt = pr.boothAmt; if (pr.letter) state.letter = pr.letter; } catch (e) {}
+  const savePrefs = () => { try { localStorage.setItem('wildflower-suite-prefs', JSON.stringify({ boothAmt: state.boothAmt, letter: state.letter })); } catch (e) {} };
+  const LAYKEY = 'wildflower-suite-layouts';
+  try { Object.assign(state.lays, JSON.parse(localStorage.getItem(LAYKEY) || '{}')); } catch (e) {}
+  const layOf = (piece) => state.lays[piece] || 'scatter';
+  // the bookmark back keeps its own florals; every other card follows its piece
+  const layFor = (card) => layOf(card.closest('[data-piece]').dataset.piece + (card.dataset.side ? '-' + card.dataset.side : ''));
+  const STORE = 'wildflower-suite-v3';
+  const load = () => { try { return JSON.parse(localStorage.getItem(STORE) || '{}'); } catch (e) { return {}; } };
+  const save = (o) => { try { localStorage.setItem(STORE, JSON.stringify(o)); } catch (e) {} };
+
+  function rng(seed) {
+    return function () {
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  const f = (n) => n.toFixed(1);
+  const pick = (R, arr) => arr[Math.floor(R() * arr.length)];
+
+  // Every bloom is drawn with its head at 0,0 and its stem running down +y for stemLen units.
+  function stem(R, p, L) {
+    if (L <= 0) return '';
+    const b = (R() - .5) * L * .3;
+    return `<path d="M0 0 Q${f(b)} ${f(L / 2)} ${f(b * .4)} ${f(L)}" stroke="${p.stem}" stroke-width="0.9" fill="none" stroke-linecap="round" opacity=".85"/>`;
+  }
+  function leafAt(R, p, x, y, a, sz) {
+    return `<ellipse cx="${f(x)}" cy="${f(y)}" rx="${f(sz * .38)}" ry="${f(sz)}" transform="rotate(${f(a)} ${f(x)} ${f(y)})" fill="${p.leaf}" fill-opacity=".7"/>`;
+  }
+  const BLOOMS = {
+    cosmos(R, p, L) {
+      const col = pick(R, p.blooms), n = 7 + Math.floor(R() * 5), len = 8 + R() * 3, w = 2.4 + R() * 1.3;
+      let s = stem(R, p, L);
+      if (L > 14) s += leafAt(R, p, 2.5, L * .55, 35, 4.5);
+      for (let i = 0; i < n; i++) {
+        const a = i * 360 / n + (R() - .5) * 14;
+        s += `<ellipse cx="0" cy="${f(-len / 2 - 1.4)}" rx="${f(w)}" ry="${f(len / 2)}" transform="rotate(${f(a)})" fill="${col}" fill-opacity="${f(.55 + R() * .35)}"/>`;
+      }
+      s += `<circle r="2.8" fill="${p.center}"/>`;
+      for (let i = 0; i < 6; i++) s += `<circle cx="${f((R() - .5) * 3.4)}" cy="${f((R() - .5) * 3.4)}" r=".55" fill="#5a3d14" opacity=".6"/>`;
+      return s;
+    },
+    floret(R, p, L) {
+      const col = pick(R, p.blooms), n = R() < .5 ? 4 : 5, r = 4.2 + R() * 1.6;
+      let s = stem(R, p, L * .7);
+      for (let i = 0; i < n; i++) {
+        const a = (i * 360 / n + R() * 10) * Math.PI / 180;
+        s += `<circle cx="${f(Math.cos(a) * r * .62)}" cy="${f(Math.sin(a) * r * .62)}" r="${f(r * (.6 + R() * .12))}" fill="${col}" fill-opacity="${f(.5 + R() * .35)}"/>`;
+      }
+      s += `<circle r="1.3" fill="${p.center}" opacity=".8"/>`;
+      return s;
+    },
+    cluster(R, p, L) {
+      const col = pick(R, p.blooms);
+      let s = stem(R, p, L);
+      const k = 3 + Math.floor(R() * 3);
+      for (let j = 0; j < k; j++) {
+        const cx = (R() - .5) * 11, cy = (R() - .5) * 9, r = 3 + R() * 1.2;
+        for (let i = 0; i < 4; i++) {
+          const a = (i * 90 + R() * 30) * Math.PI / 180;
+          s += `<circle cx="${f(cx + Math.cos(a) * r * .6)}" cy="${f(cy + Math.sin(a) * r * .6)}" r="${f(r * .55)}" fill="${col}" fill-opacity="${f(.45 + R() * .35)}"/>`;
+        }
+        s += `<circle cx="${f(cx)}" cy="${f(cy)}" r=".7" fill="${p.center}"/>`;
+      }
+      return s;
+    },
+    lace(R, p, L) {
+      let s = stem(R, p, L + 6).replace('M0 0', 'M0 6');
+      const rays = 8 + Math.floor(R() * 4);
+      for (let i = 0; i < rays; i++) {
+        const a = (-165 + i * 150 / (rays - 1) + (R() - .5) * 8) * Math.PI / 180, rr = 10 + R() * 3;
+        const x = Math.cos(a) * rr, y = 6 + Math.sin(a) * rr;
+        s += `<path d="M0 6 L${f(x)} ${f(y)}" stroke="${p.stem}" stroke-width=".45" opacity=".8"/>`;
+        for (let j = 0; j < 5; j++) {
+          const b = j * 72 * Math.PI / 180;
+          s += `<circle cx="${f(x + Math.cos(b) * 1.5)}" cy="${f(y + Math.sin(b) * 1.5)}" r="1.05" fill="${p.lace}" stroke="${p.laceEdge}" stroke-width=".4"/>`;
+        }
+      }
+      return s;
+    },
+    lavender(R, p, L) {
+      const col = p.purple, top = 26 + R() * 8;
+      const b = (R() - .5) * (L + top) * .2;
+      let s = `<path d="M0 ${f(-top)} Q${f(b)} ${f((L - top) / 2)} ${f(b * .4)} ${f(L)}" stroke="${p.stem}" stroke-width="0.9" fill="none" stroke-linecap="round" opacity=".85"/>`;
+      for (let y = -top; y < -top * .2; y += 3) {
+        const side = ((y / 3) | 0) % 2 ? 1 : -1;
+        s += `<ellipse cx="${f(side * 1.6)}" cy="${f(y)}" rx="1.5" ry="2.6" transform="rotate(${side * 25} ${f(side * 1.6)} ${f(y)})" fill="${col}" fill-opacity="${f(.55 + R() * .35)}"/>`;
+      }
+      return s;
+    },
+    leafy(R, p, L) {
+      const top = 22 + R() * 10;
+      let s = `<path d="M0 ${f(-top)} Q${f((R() - .5) * 8)} 0 0 ${f(Math.max(L, 4))}" stroke="${p.stem}" stroke-width=".9" fill="none" stroke-linecap="round"/>`;
+      for (let y = -top + 2, i = 0; y < 4; y += 6, i++) {
+        const side = i % 2 ? 1 : -1;
+        s += leafAt(R, p, side * 2.6, y, side * 42, 3.6 + R() * 1.4);
+      }
+      return s;
+    },
+    breath(R, p, L) {
+      let s = stem(R, p, L);
+      const n = 6 + Math.floor(R() * 5);
+      for (let i = 0; i < n; i++) {
+        const x = (R() - .5) * 22, y = -R() * 16;
+        s += `<path d="M0 3 Q${f(x * .3)} ${f(y * .5)} ${f(x)} ${f(y)}" stroke="${p.stem}" stroke-width=".4" fill="none" opacity=".85"/>`;
+        s += `<circle cx="${f(x)}" cy="${f(y)}" r="${f(1 + R() * .5)}" fill="${p.lace}" stroke="${p.laceEdge}" stroke-width=".45"/>`;
+      }
+      return s;
+    }
+  };
+  function weighted(R) {
+    const t = [['cosmos', 5], ['floret', 4], ['cluster', 2], ['lace', 2.5], ['lavender', 2], ['leafy', 2], ['breath', 1.5]];
+    let x = R() * t.reduce((a, b) => a + b[1], 0);
+    for (const [k, w] of t) { if ((x -= w) <= 0) return k; }
+    return 'cosmos';
+  }
+  const place = (x, y, rot, s, inner) => `<g transform="translate(${f(x)} ${f(y)}) rotate(${f(rot)}) scale(${s.toFixed(3)})">${inner}</g>`;
+  const inRect = (x, y, r) => x > r[0] && x < r[2] && y > r[1] && y < r[3];
+
+  // Single pressed blooms sprinkled around the edges. fs scales bloom size for big or tiny formats.
+  function scatter(R, p, W, H, fs, cfg) {
+    const dens = cfg.dens || 1, band = 62 * fs * (1 + (dens - 1) * .22), pts = [], target = Math.round(dens * (2 * (W + H)) / (165 * fs * (cfg.sparse || 1)));
+    const avoid = cfg.avoid || [];
+    let tries = 0;
+    while (pts.length < target && tries++ < 4000) {
+      const side = R() * 2 * (W + H), d = 10 * fs + R() * (band - 10 * fs);
+      let x, y;
+      if (side < W) { x = side; y = d; }
+      else if (side < W + H) { x = W - d; y = side - W; }
+      else if (side < 2 * W + H) { x = side - W - H; y = H - d; }
+      else { x = d; y = side - 2 * W - H; }
+      if (avoid.some(r => inRect(x, y, r))) continue;
+      if (pts.every(q => Math.hypot(q[0] - x, q[1] - y) > 58 * fs / Math.sqrt(dens))) pts.push([x, y]);
+    }
+    return pts.map(([x, y]) => {
+      const k = weighted(R), sc = (1.45 + R() * .55) * fs;
+      return place(x, y, R() * 360, k === 'lavender' || k === 'leafy' ? sc * .9 : sc, BLOOMS[k](R, p, 6 + R() * 10));
+    }).join('');
+  }
+
+  // Wild stems hanging from the top edge and growing up from the bottom edge.
+  function meadow(R, p, W, H, fs, cfg) {
+    let out = '';
+    const baseY = cfg.baseY ?? H;
+    const draw = (fromTop, lo, hi, count) => {
+      for (let i = 0; i < count; i++) {
+        const x = (i + .15 + R() * .7) * W / count, h = W * (lo + R() * (hi - lo)), sc = (1.3 + R() * .5) * fs;
+        const k = weighted(R), y = fromTop ? h : baseY - h;
+        out += place(x, y, (fromTop ? 180 : 0) + (R() - .5) * 26, sc, BLOOMS[k](R, p, (h + 12 * fs) / sc));
+      }
+    };
+    const grass = (fromTop, hi) => {
+      for (let i = 0; i < Math.round(W / (22 * fs)); i++) {
+        const x = R() * W, h = W * hi * (.4 + R() * .7), lean = (R() - .5) * 22 * fs;
+        const y0 = fromTop ? -4 * fs : baseY + 4 * fs, y1 = fromTop ? h : baseY - h;
+        out += `<path d="M${f(x)} ${f(y0)} Q${f(x + lean * .3)} ${f((y0 + y1) / 2)} ${f(x + lean)} ${f(y1)}" stroke="${p.leaf}" stroke-width="${f(1.1 * fs)}" fill="none" opacity=".55" stroke-linecap="round"/>`;
+      }
+    };
+    const dens = cfg.dens || 1;
+    if (cfg.top) { grass(true, cfg.top[1]); draw(true, cfg.top[0], cfg.top[1], Math.round(dens * W / (34 * fs))); }
+    if (cfg.bot) { grass(false, cfg.bot[1]); draw(false, cfg.bot[0], cfg.bot[1], Math.round(dens * W / (26 * fs))); }
+    return out;
+  }
+
+  // A tied bunch along the left edge: heads fan out over roughly three quarters of the page height,
+  // stems gather to a ribbon near the bottom. Settings are fractions of the card (W, H).
+  function bouquet(R, p, W, H, fs, c) {
+    const tie = [W * c.tie[0], H * c.tie[1]], top = H * c.top, span = tie[1] - top - H * .06;
+    const dens = c.dens || 1, heads = [], minD = 24 * fs / Math.sqrt(Math.min(dens, 2)), want = Math.round(c.n * Math.min(dens, 2));
+    let tries = 0;
+    while (heads.length < want && tries++ < 6000) {
+      const u = Math.pow(R(), 1.15), y = top + u * span;
+      const half = W * c.half * (1 - .55 * Math.pow(u, 1.4)) + W * .015;
+      const x = W * c.cx + (R() * 2 - 1) * half;
+      if (heads.every(h => Math.hypot(h[0] - x, h[1] - y) > minD)) heads.push([x, y]);
+    }
+    const stems = [], fol = [], blooms = [];
+    for (const [x, y] of heads) {
+      const dx = x - tie[0], dy = y - tie[1], ang = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+      const bend = (R() - .5) * 18 * fs;
+      stems.push(`<path d="M${f(tie[0])} ${f(tie[1])} Q${f(tie[0] + dx * .5 + bend)} ${f(tie[1] + dy * .55)} ${f(x)} ${f(y)}" stroke="${p.stem}" stroke-width="${f(.9 * fs)}" fill="none" opacity=".75" stroke-linecap="round"/>`);
+      const k = weighted(R), sc = (1.55 + R() * .75) * fs;
+      const g = place(x, y, ang + (R() - .5) * 24, sc, BLOOMS[k](R, p, 0));
+      (k === 'lavender' || k === 'leafy' || k === 'lace' || k === 'breath' ? fol : blooms).push(g);
+    }
+    // extra greenery tucked between the heads
+    for (let i = 0; i < Math.round(want * .35); i++) {
+      const [x, y] = heads[Math.floor(R() * heads.length)] || tie;
+      const ang = Math.atan2(y - tie[1], x - tie[0]) * 180 / Math.PI + 90 + (R() - .5) * 50;
+      fol.unshift(place(x + (R() - .5) * 20 * fs, y + 12 * fs, ang, (1.5 + R() * .6) * fs, BLOOMS.leafy(R, p, 0)));
+    }
+    // stem ends below the tie, then a soft ribbon bow
+    let tails = '';
+    for (let i = 0; i < 9; i++) {
+      const ex = tie[0] + (R() - .5) * W * .07, ey = Math.min(H + 4 * fs, tie[1] + H * c.tail * (.7 + R() * .3));
+      tails += `<path d="M${f(tie[0])} ${f(tie[1])} L${f(ex)} ${f(ey)}" stroke="${p.stem}" stroke-width="${f(1 * fs)}" opacity=".75" stroke-linecap="round"/>`;
+    }
+    const r = 7 * fs, [tx, ty] = tie, rib = p.blooms[1];
+    const bow = `<g fill="none" stroke="${rib}" stroke-opacity=".75" stroke-width="${f(1.3 * fs)}" stroke-linecap="round">` +
+      `<path d="M${f(tx)} ${f(ty)} C${f(tx - 2.2 * r)} ${f(ty - 1.4 * r)} ${f(tx - 2.4 * r)} ${f(ty + .9 * r)} ${f(tx)} ${f(ty)}"/>` +
+      `<path d="M${f(tx)} ${f(ty)} C${f(tx + 2.2 * r)} ${f(ty - 1.4 * r)} ${f(tx + 2.4 * r)} ${f(ty + .9 * r)} ${f(tx)} ${f(ty)}"/>` +
+      `<path d="M${f(tx)} ${f(ty)} q${f(-.6 * r)} ${f(1.6 * r)} ${f(-1.5 * r)} ${f(3.2 * r)}"/><path d="M${f(tx)} ${f(ty)} q${f(.5 * r)} ${f(1.7 * r)} ${f(1.4 * r)} ${f(3.1 * r)}"/></g>` +
+      `<ellipse cx="${f(tx)}" cy="${f(ty)}" rx="${f(1.6 * fs)}" ry="${f(2.2 * fs)}" fill="${rib}" fill-opacity=".8"/>`;
+    return tails + stems.join('') + fol.join('') + blooms.join('') + bow;
+  }
+
+  // Per-format settings, in each card's own units (1/100 in; the photobooth uses 1/2 px).
+  // pad: [top, sides, bottom] in card units for the scattered layout; meadow padding is derived from its heights.
+  const KIND = {
+    invite:  { bouquet: { cx: .15, half: .14, top: .1, tie: [.17, .83], tail: .14, n: 48, col: [.34, .05] }, scatter: { pad: [72, 72, 72] }, meadow: { top: [.05, .15], bot: [.07, .2] } },
+    bar:     { bouquet: { cx: .15, half: .14, top: .1, tie: [.17, .83], tail: .14, n: 48, col: [.36, .07] }, scatter: { pad: [66, 70, 66] }, meadow: { top: [.04, .1], bot: [.05, .12] } },
+    menu:    { bouquet: { cx: .15, half: .14, top: .1, tie: [.17, .83], tail: .14, n: 52, col: [.35, .06] }, scatter: { pad: [76, 76, 76] }, meadow: { top: [.04, .1], bot: [.05, .12] } },
+    thanks:  { bouquet: { cx: .17, half: .16, top: .1, tie: [.2, .84], tail: .13, n: 50, col: [.4, .07] }, scatter: { pad: [76, 70, 76] }, meadow: { top: [.06, .2], bot: [.08, .26] } },
+    placard: { bouquet: { cx: .14, half: .12, top: .08, tie: [.17, .86], tail: .12, n: 12, col: [.33, .06] }, scatter: { pad: [36, 34, 36], sparse: 1.4 }, meadow: { top: [.03, .08], bot: [.04, .1] } },
+    booth:   { bouquet: { cx: .13, half: .12, top: .12, tie: [.15, .83], tail: .14, n: 40, col: [.32, .06] }, win: [34, 34, 506, 512],
+               scatter: { pad: [0, 60, 46], avoid: [[30, 515, 510, 676]] },
+               meadow: { top: [.04, .15], bot: [.02, .06] } },
+    board:   { bouquet: { cx: .15, half: .14, top: .14, tie: [.17, .86], tail: .12, n: 46, col: [.34, .06] }, scatter: { pad: [290, 260, 0] }, meadow: { top: [.04, .12], bot: [.06, .2] } }
+  };
+
+  function filterDef(id, fs) {
+    return `<defs><filter id="${id}" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="${(0.09 / fs).toFixed(4)}" numOctaves="2" seed="7" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="${f(2.6 * fs)}" xChannelSelector="R" yChannelSelector="G"/></filter></defs>`;
+  }
+  // Paper surround for the photobooth overlay, with a clear window for the guest photo.
+  function boothFrame(W, H, p, win) {
+    const [x0, y0, x1, y1] = win;
+    const hole = `M${x0} ${y0} H${x1} V${y1} H${x0}Z`;
+    return `<path fill-rule="evenodd" d="M0 0 H${W} V${H} H0Z ${hole}" fill="#fcfaf4"/>` +
+      `<path d="${hole}" fill="none" stroke="${p.ink}" stroke-opacity=".5" stroke-width="1.2"/>` +
+      `<rect x="${x0 - 7}" y="${y0 - 7}" width="${x1 - x0 + 14}" height="${y1 - y0 + 14}" fill="none" stroke="${p.ink}" stroke-opacity=".3" stroke-width=".8"/>`;
+  }
+  // Dashed outlines showing where test tubes of fresh flowers could stand on the board. Not printed.
+  function tubes(W, H, p) {
+    let o = ''; const n = 8, span = W * .74, x0 = (W - span) / 2, tw = W * .035, th = H * .246, top = H * .5;
+    for (let i = 0; i < n; i++) {
+      const x = x0 + i * span / (n - 1) - tw / 2;
+      o += `<rect x="${f(x)}" y="${f(top + (i % 2) * H * .02)}" width="${f(tw)}" height="${f(th)}" rx="${f(tw / 2)}" fill="none" stroke="${p.ink}" stroke-opacity=".3" stroke-width="4" stroke-dasharray="16 16"/>`;
+    }
+    return o + `<text x="${W / 2}" y="${f(top + th + H * .07)}" text-anchor="middle" font-family="Jost, sans-serif" font-size="${f(W * .02)}" letter-spacing="${f(W * .005)}" fill="${p.ink}" fill-opacity=".45">TEST-TUBE AREA · NOT PRINTED</text>`;
+  }
+
+  // ---------- paws and bar drawing ----------
+  // His own paw outline, traced from the pattern: main pad plus four toes, filled solid.
+  const PAW = 'M275 322 C330 322 350 360 375 400 C395 430 445 455 445 520 C445 585 405 615 370 612 C330 608 310 600 275 600 C240 600 220 608 180 612 C145 615 105 585 105 520 C105 455 155 430 175 400 C200 360 220 322 275 322Z' +
+    'M200 95 C240 92 262 150 268 210 C273 270 250 312 215 312 C170 312 130 270 125 210 C120 150 160 98 200 95Z' +
+    'M350 95 C310 92 288 150 282 210 C277 270 300 312 335 312 C380 312 420 270 425 210 C430 150 390 98 350 95Z' +
+    'M98 255 C110 262 108 278 125 290 C150 308 170 330 168 375 C166 420 140 443 115 443 C75 443 35 410 33 345 C31 290 65 245 98 255Z' +
+    'M452 255 C440 262 442 278 425 290 C400 308 380 330 382 375 C384 420 410 443 435 443 C475 443 515 410 517 345 C519 290 485 245 452 255Z';
+  const PAW_PARTS = PAW.split('Z').filter(Boolean).map(d => d + 'Z');
+  // Trail of four, as [x, y, rotation] in a 100-wide box; each paw is 34 units wide.
+  const TRAIL = [[4, 106, -16], [50, 78, 14], [16, 40, -12], [62, 8, 16]];
+  // Starting spot for the trail on each format: [left %, top as share of card height, trail width %].
+  const PAW_AT = { invite: [74, .79, 21], menu: [78, .82, 18], bar: [76, .79, 20], thanks: [58, .8, 34], placard: [85, .56, 13], booth: [80, .77, 16], board: [80, .82, 16] };
+  let pawUid = 0;
+  // Paws drawn in the same hand as the flowers: wobbly watercolour edges and the palette's ink.
+  function pawArt(style, p, i) {
+    const id = 'pw' + (pawUid++);
+    const wobble = `<defs><filter id="${id}" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="2" seed="${3 + i}"/><feDisplacementMap in="SourceGraphic" scale="16" xChannelSelector="R" yChannelSelector="G"/></filter></defs>`;
+    if (style === 'black') return `<path d="${PAW}" fill="#141414"/>`;
+    if (style === 'line') return wobble + `<g filter="url(#${id})"><path d="${PAW}" fill="none" stroke="${p.ink}" stroke-width="13" stroke-linejoin="round"/></g>`;
+    if (style === 'petal') {
+      const cols = p.blooms;
+      return wobble + `<g filter="url(#${id})">` + PAW_PARTS.map((d, j) => `<path d="${d}" fill="${cols[(i * 2 + j) % cols.length]}" fill-opacity=".78"/><path d="${d}" fill="none" stroke="${p.ink}" stroke-opacity=".55" stroke-width="6"/>`).join('') + '</g>';
+    }
+    // watercolour wash: soft fill with darker pooled edges
+    return wobble + `<g filter="url(#${id})"><path d="${PAW}" fill="${p.ink}" fill-opacity=".62"/><path d="${PAW}" fill="none" stroke="${p.ink}" stroke-opacity=".7" stroke-width="10"/>` +
+      PAW_PARTS.map(d => `<path d="${d}" fill="${p.ink}" fill-opacity=".12" transform="translate(14 18)"/>`).join('') + '</g>';
+  }
+  const holeSVG = (ink) => `<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="40" fill="none" stroke="${ink}" stroke-opacity=".55" stroke-width="5" stroke-dasharray="10 8"/></svg>`;
+
+  function barDrawing(ink) {
+    let o = ''; const s = `stroke="${ink}" fill="none" stroke-linecap="round"`;
+    const arch = (m) => `M${60 + m} 236 V130 C${60 + m} ${48 + m} ${240 - m} ${48 + m} ${240 - m} 130 V236`;
+    o += `<path d="${arch(0)}" ${s} stroke-width="1.4"/><path d="${arch(9)}" ${s} stroke-width=".8"/>`;
+    o += `<circle cx="196" cy="108" r="12" ${s} stroke-width="1"/><path d="M196 96 v-4" ${s} stroke-width=".8"/>`;
+    for (const y of [150, 178]) o += `<rect x="69" y="${y}" width="162" height="4" ${s} stroke-width=".9"/>`;
+    for (let x = 73; x < 230; x += 5.5) o += `<path d="M${x.toFixed(1)} 154 V236" ${s} stroke-width=".45"/>`;
+    o += `<path d="M150 236 v-13 h10 v13 M166 236 v-13 h10 v13 M160 227 q3 0 3 3 t-3 3 M176 227 q3 0 3 3 t-3 3" ${s} stroke-width=".8"/>`;
+    o += `<rect x="44" y="236" width="222" height="8" ${s} stroke-width="1.2"/>`;
+    o += `<rect x="50" y="246" width="103" height="22" ${s} stroke-width="1"/><rect x="157" y="246" width="103" height="22" ${s} stroke-width="1"/>`;
+    for (let i = 0; i < 4; i++) { const x = 50 + i * 52.5; o += `<rect x="${x.toFixed(1)}" y="271" width="50" height="78" ${s} stroke-width="1"/>`; for (let j = 0; j < 7; j++) o += `<path d="M${(x + 9 + j * 5.3).toFixed(1)} 282 V338" ${s} stroke-width="1.6"/>`; }
+    o += `<rect x="44" y="349" width="222" height="7" ${s} stroke-width="1"/>`;
+    for (let i = 0; i < 7; i++) o += `<path d="M${20 + i * 44} 362 L${10 + i * 46} 378" ${s} stroke-width=".5"/>`;
+    // scaled up so the bar fills the whole menu page
+    return `<svg viewBox="0 0 300 420" preserveAspectRatio="none" aria-hidden="true"><g transform="translate(-30 -40) scale(1.2 1.22)">${o}</g></svg>`;
+  }
+
+  // Sizes each piece can be made in: [key, label, width, height]. Print sizes in mm; the photobooth in px.
+  const SIZES = {
+    invite: [['5x7', '5 × 7 in', 127, 177.8], ['a5', 'A5 · 148 × 210 mm', 148, 210], ['a6', 'A6 · 105 × 148 mm', 105, 148], ['4x6', '4 × 6 in', 101.6, 152.4]],
+    menu: [['a5', 'A5 · 148 × 210 mm', 148, 210], ['a4', 'A4 · 210 × 297 mm', 210, 297], ['5x7', '5 × 7 in', 127, 177.8], ['4x9', '4 × 9 in', 101.6, 228.6]],
+    bar: [['5x7', '5 × 7 in', 127, 177.8], ['a5', 'A5 · 148 × 210 mm', 148, 210], ['a4', 'A4 · 210 × 297 mm', 210, 297], ['8x10', '8 × 10 in', 203.2, 254]],
+    thanks: [['2.5x7', '2.5 × 7 in bookmark', 63.5, 177.8], ['2x6', '2 × 6 in bookmark', 50.8, 152.4], ['2x7', '2 × 7 in bookmark', 50.8, 177.8], ['4x9', '4 × 9 in card', 101.6, 228.6]],
+    placard: [['3.5x2', '3.5 × 2 in each', 88.9, 50.8], ['4x2.5', '4 × 2.5 in each', 101.6, 63.5], ['a7', 'A7 · 105 × 74 mm each', 105, 74]],
+    booth: [['post', 'Portrait post · 1080 × 1350 px', 1080, 1350], ['story', 'Story · 1080 × 1920 px', 1080, 1920], ['square', 'Square · 1080 × 1080 px', 1080, 1080]],
+    board: [['18x24', '18 × 24 in · for easel', 457.2, 609.6], ['24x36', '24 × 36 in', 609.6, 914.4], ['a2', 'A2 · 420 × 594 mm', 420, 594], ['a1', 'A1 · 594 × 841 mm', 594, 841]]
+  };
+  const sizeOf = (piece) => SIZES[piece].find(z => z[0] === state.sizes[piece]) || SIZES[piece][0];
+
+  // ---------- one design state, saved in this browser and to design files ----------
+  const DESIGN_KEY = 'wildflower-suite-design';
+  const cards = [...document.querySelectorAll('.card')];
+  const kindCount = {};
+  cards.forEach(c => { const k = c.dataset.kind; kindCount[k] = (kindCount[k] || 0) + 1; c.dataset.id = k === 'placard' ? 'placard-' + kindCount[k] : (c.dataset.side ? k + '-' + c.dataset.side : k); });
+  const cardById = (id) => cards.find(c => c.dataset.id === id);
+
+  const MAP_DEFAULT = 'https://maps.app.goo.gl/UAkCJpnYBRX5yzM18';
+  Object.assign(state, { mapUrl: MAP_DEFAULT, edits: {}, mv: {}, fl: {}, wm: 7, bleed: false, sizes: {}, q: 300, pawStyle: 'wash', pawPer: {}, added: {}, pawOp: 90, pawShow: true, hole: true });
+  (function loadDesign() {
+    let d = null;
+    try { d = JSON.parse(localStorage.getItem(DESIGN_KEY) || 'null'); } catch (e) {}
+    if (!d) { // carry over wording and choices from the earlier page version
+      try {
+        d = { edits: JSON.parse(localStorage.getItem('wildflower-suite-v3') || '{}'), lays: JSON.parse(localStorage.getItem('wildflower-suite-layouts') || '{}') };
+        Object.assign(d, JSON.parse(localStorage.getItem('wildflower-suite-prefs') || '{}'));
+      } catch (e) { d = {}; }
+    }
+    applyDesign(d);
+  })();
+  function applyDesign(d) {
+    for (const k of ['mapUrl', 'pal', 'salt', 'guides', 'boothAmt', 'letter', 'wm', 'bleed', 'q', 'pawStyle', 'pawOp', 'pawShow', 'hole']) if (d[k] !== undefined) state[k] = d[k];
+    state.sizes = d.sizes || {}; state.pawPer = d.pawPer || {}; state.added = d.added || {};
+    if (!state.mapUrl || /maps\/search\//.test(state.mapUrl)) state.mapUrl = MAP_DEFAULT;
+    state.lays = d.lays || {}; state.edits = d.edits || {}; state.mv = d.mv || {}; state.fl = d.fl || {};
+  }
+  const designJSON = () => ({ app: 'wildflower-suite', v: 1, pal: state.pal, salt: state.salt, guides: state.guides, boothAmt: state.boothAmt, letter: state.letter, mapUrl: state.mapUrl, wm: state.wm, bleed: state.bleed, q: state.q, sizes: state.sizes, pawStyle: state.pawStyle, pawPer: state.pawPer, added: state.added, pawOp: state.pawOp, pawShow: state.pawShow, hole: state.hole, lays: state.lays, edits: state.edits, mv: state.mv, fl: state.fl });
+  let saveT = 0;
+  const persist = () => { clearTimeout(saveT); saveT = setTimeout(() => { try { localStorage.setItem(DESIGN_KEY, JSON.stringify(designJSON())); } catch (e) {} }, 250); };
+
+  // ---------- extra layers on each card ----------
+  // clear anything a previous run of this script left behind, so layers never stack up
+  document.querySelectorAll('.card .wm, .card .paw, .card .hole').forEach(el => el.remove());
+  cards.forEach(card => {
+    const kind = card.dataset.kind, at = PAW_AT[kind];
+    if (kind === 'bar') {
+      const wm = document.createElement('div'); wm.className = 'wm'; wm.dataset.m = 'watermark'; wm.dataset.label = 'Bar drawing';
+      card.insertBefore(wm, card.querySelector('.flora'));
+    }
+    TRAIL.forEach((t, i) => {
+      const paw = document.createElement('div'); paw.className = 'paw'; paw.dataset.m = 'paw' + i; paw.dataset.label = 'Paw ' + (i + 1);
+      card.appendChild(paw);
+    });
+    if (kind === 'thanks') { const h = document.createElement('div'); h.className = 'hole'; h.dataset.m = 'hole'; h.dataset.label = 'Tassel hole'; card.appendChild(h); }
+    // every text block, and each course or bar section inside them, can be moved on its own
+    const inner = card.querySelector('.inner');
+    [...inner.children].forEach((el, i) => { el.dataset.m = 't' + i; });
+    inner.querySelectorAll('.course, .sect').forEach((el, i) => { el.dataset.m = 'g' + i; });
+    card.querySelectorAll('[data-m]').forEach(el => { if (!el.dataset.label) el.dataset.label = labelFor(el); });
+  });
+  function labelFor(el) {
+    const t = (el.innerText || '').trim().split('\n')[0];
+    return t ? (t.length > 28 ? t.slice(0, 26) + '…' : t) : 'Item';
+  }
+
+  // Text boxes the user added or duplicated: kept as small HTML templates per card, rebuilt on every render.
+  function syncAdded(card) {
+    card.querySelectorAll(':scope > .added').forEach(el => el.remove());
+    (state.added[card.dataset.id] || []).forEach(a => {
+      const t = document.createElement('template'); t.innerHTML = a.html.trim();
+      const el = t.content.firstElementChild; if (!el) return;
+      el.classList.add('added'); el.dataset.m = a.id; el.dataset.label = a.label || 'Text';
+      Object.assign(el.style, { left: a.left + 'cqw', top: a.top + 'cqw', width: a.width ? a.width + 'cqw' : '' });
+      el.querySelectorAll('[data-k]').forEach(k => wireText(k));
+      if (el.matches('[data-k]')) wireText(el);
+      card.appendChild(el);
+    });
+  }
+  function wireText(el) {
+    if (state.edits[el.dataset.k] != null) el.innerText = state.edits[el.dataset.k];
+    el.setAttribute('contenteditable', 'false');
+    el.addEventListener('input', () => { state.edits[el.dataset.k] = el.innerText; persist(); });
+  }
+  function render() {
+    const p = PALETTES[state.pal];
+    document.documentElement.style.setProperty('--ink', p.ink);
+    cards.forEach((card, idx) => {
+      const kind = card.dataset.kind, cfg = KIND[kind], sz = sizeOf(card.closest('[data-piece]').dataset.piece);
+      const W = +card.dataset.w, H = Math.round(W * sz[3] / sz[2]), fs = +card.dataset.fs;
+      card.dataset.h = H; card.style.aspectRatio = `${sz[2]} / ${sz[3]}`;
+      const svg = card.querySelector('.flora'), inner = card.querySelector('.inner');
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      const lay = layFor(card);
+      const R = rng(idx * 7919 + state.salt * 104729 + ({ meadow: 31, bouquet: 59 }[lay] || 0));
+      card.classList.toggle('bouq', lay === 'bouquet');
+      const pc = (u) => (u / W * 100).toFixed(2) + 'cqw';
+      const id = 'wc' + idx;
+      let art;
+      if (kind === 'booth') { cfg.scatter.dens = cfg.meadow.dens = cfg.bouquet.dens = state.boothAmt; cfg.win = [34, 34, W - 34, H - 163]; cfg.scatter.avoid = [[30, H - 160, W - 30, H + 1]]; }
+      if (lay === 'scatter') {
+        const c = cfg.scatter;
+        art = scatter(R, p, W, H, fs, c);
+        inner.style.padding = `${pc(c.pad[0])} ${pc(c.pad[1])} ${pc(c.pad[2])}`;
+      } else if (lay === 'bouquet') {
+        const c = cfg.bouquet;
+        art = bouquet(R, p, W, H, fs, c);
+        const L = (c.col[0] * 100).toFixed(1) + 'cqw', Rt = (c.col[1] * 100).toFixed(1) + 'cqw';
+        if (kind === 'board') inner.style.padding = `${pc(260)} ${Rt} 0 ${L}`;
+        else if (kind === 'booth') inner.style.padding = `0 ${Rt} ${pc(46)} ${L}`;
+        else inner.style.padding = `${pc(40 * fs)} ${Rt} ${pc(40 * fs)} ${L}`;
+      } else {
+        const c = cfg.meadow;
+        art = meadow(R, p, W, H, fs, c);
+        const top = c.top ? c.top[1] * W + 24 * fs : 34 * fs, bot = c.bot ? c.bot[1] * W + 26 * fs : 34 * fs;
+        if (kind === 'board') inner.style.padding = `${pc(top + 40 * fs)} ${pc(200)} 0`;
+        else if (kind === 'booth') inner.style.padding = `0 ${pc(60)} ${pc(bot)}`;
+        else inner.style.padding = `${pc(top)} ${pc(Math.max(56, W * .11))} ${pc(bot)}`;
+      }
+      const guides = kind === 'board' && state.guides ? `<g class="guides">${tubes(W, H, p)}</g>` : '';
+      svg.innerHTML = filterDef(id, fs) + `<g filter="url(#${id})">${art}</g>` + guides;
+      wrapFlowers(card, lay);
+      const frame = card.querySelector('.frame');
+      if (frame) { frame.setAttribute('viewBox', `0 0 ${W} ${H}`); frame.innerHTML = boothFrame(W, H, p, cfg.win); }
+      const at = PAW_AT[kind], topBase = at[1] * H / W * 100;
+      const pawStyleOn = state.pawPer[card.closest('[data-piece]').dataset.piece] || state.pawStyle;
+      card.classList.toggle('no-paw', pawStyleOn === 'none');
+      card.querySelectorAll('.paw').forEach((el, i) => {
+        const [x, y, r] = TRAIL[i], tw = at[2];
+        el.style.left = (at[0] + x / 100 * tw).toFixed(2) + 'cqw'; el.style.top = (topBase + y / 100 * tw).toFixed(2) + 'cqw';
+        el.style.width = (tw * .34).toFixed(2) + 'cqw'; el.dataset.r0 = r;
+        el.innerHTML = pawStyleOn !== 'none' ? `<svg viewBox="0 0 550 712" aria-hidden="true">${pawArt(pawStyleOn, p, i)}</svg>` : '';
+      });
+      const hole = card.querySelector('.hole'); if (hole) hole.innerHTML = holeSVG(p.ink);
+      const wm = card.querySelector('.wm');
+      if (wm) { wm.innerHTML = barDrawing(p.ink); wm.firstElementChild.style.opacity = state.wm / 100; }
+      syncAdded(card);
+      applyMoves(card);
+    });
+    document.body.classList.toggle('no-paws', !state.pawShow);
+    document.body.classList.toggle('no-hole', !state.hole);
+    fitAll();
+    if (typeof queueBoxes === 'function') queueBoxes();
+    persist();
+  }
+
+  // Flowers: each bloom (or the whole bouquet) gets a wrapper group that carries its own move.
+  const NS = 'http://www.w3.org/2000/svg';
+  const flKey = (card) => layFor(card) + ':' + state.salt;
+  function wrapFlowers(card, lay) {
+    const g = card.querySelector('.flora g[filter]');
+    if (lay === 'bouquet') { const w = document.createElementNS(NS, 'g'); w.dataset.f = 'all'; w.dataset.label = 'Bouquet'; g.replaceWith(w); w.appendChild(g); return; }
+    [...g.children].forEach((c, i) => { const w = document.createElementNS(NS, 'g'); w.dataset.f = String(i); w.dataset.label = 'Flower'; c.replaceWith(w); w.appendChild(c); });
+  }
+  function moveOf(card, el) {
+    if (el.dataset.f !== undefined) { const b = ((state.fl[card.dataset.id] || {})[flKey(card)] || {}); return b[el.dataset.f] || null; }
+    return (state.mv[card.dataset.id] || {})[el.dataset.m] || null;
+  }
+  function setMove(card, el, m) {
+    if (el.dataset.f !== undefined) {
+      const byCard = state.fl[card.dataset.id] = state.fl[card.dataset.id] || {};
+      const b = byCard[flKey(card)] = byCard[flKey(card)] || {};
+      if (m) b[el.dataset.f] = m; else delete b[el.dataset.f];
+    } else {
+      const b = state.mv[card.dataset.id] = state.mv[card.dataset.id] || {};
+      if (m) b[el.dataset.m] = m; else delete b[el.dataset.m];
+    }
+    applyOne(card, el); persist();
+  }
+  function applyOne(card, el) {
+    const m = moveOf(card, el) || { x: 0, y: 0, s: 1, h: false };
+    if (el.dataset.f !== undefined) {
+      if (el._c === undefined) { const bb = el.getBBox(); el._c = [bb.x + bb.width / 2, bb.y + bb.height / 2]; }
+      const [cx, cy] = el._c, s = m.s || 1;
+      el.setAttribute('transform', `translate(${(m.x || 0) + cx} ${(m.y || 0) + cy}) rotate(${m.r || 0}) scale(${s}) translate(${-cx} ${-cy})`);
+      if (m.o != null) el.setAttribute('opacity', m.o); else el.removeAttribute('opacity');
+    } else {
+      el.style.translate = (m.x || m.y) ? `${m.x || 0}cqw ${m.y || 0}cqw` : '';
+      el.style.scale = m.s && m.s !== 1 ? String(m.s) : '';
+      const r = (+el.dataset.r0 || 0) + (m.r || 0);
+      el.style.rotate = r ? r + 'deg' : '';
+      const base = el.classList.contains('paw') ? state.pawOp / 100 : 1;
+      el.style.opacity = (m.o != null || base !== 1) ? String(+(base * (m.o != null ? m.o : 1)).toFixed(3)) : '';
+    }
+    el.classList.toggle('is-hidden', !!m.h);
+  }
+  function applyMoves(card) { card.querySelectorAll('[data-m], [data-f]').forEach(el => applyOne(card, el)); }
+
+  // ---------- editable wording ----------
+  const defaults = {};
+  const edits = state.edits;
+  if (edits.address && /Bengaluru/.test(edits.address)) delete edits.address;
+  if (edits['inv-rsvp'] && /98765 43210|Dinner will be served/.test(edits['inv-rsvp'])) delete edits['inv-rsvp'];
+  const DIET_LABEL = { veg: 'Vegetarian', nonveg: 'Non-vegetarian', none: 'No food mark' };
+  const DIET_NEXT = { veg: 'nonveg', nonveg: 'none', none: 'veg' };
+  const diets = [...document.querySelectorAll('.diet')];
+  diets.forEach(b => {
+    b.dataset.def = b.dataset.diet;
+    b.addEventListener('click', () => {
+      b.dataset.diet = DIET_NEXT[b.dataset.diet]; b.querySelector('span').textContent = DIET_LABEL[b.dataset.diet];
+      state.edits[b.dataset.dk] = b.dataset.diet; persist();
+    });
+  });
+  // Shrink a card's type a step at a time until its wording fits inside the card. Moves are ignored here.
+  function fit(card) {
+    const inner = card.querySelector('.inner'); let k = 1;
+    inner.style.setProperty('--k', '1');
+    const cs = getComputedStyle(inner);
+    const availH = inner.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    const availW = inner.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    const overflows = () => {
+      const kids = [...inner.children]; if (!kids.length) return false;
+      const first = kids[0], last = kids[kids.length - 1];
+      const h = last.offsetTop + last.offsetHeight - first.offsetTop;
+      return h > availH + 1 || kids.some(el => el.offsetWidth > availW + 1);
+    };
+    for (let i = 0; i < 20 && overflows(); i++) { k -= .03; inner.style.setProperty('--k', k.toFixed(2)); }
+  }
+  let fitQueued = false;
+  function fitAll() { if (fitQueued) return; fitQueued = true; requestAnimationFrame(() => { fitQueued = false; cards.forEach(fit); }); }
+  const all = [...document.querySelectorAll('[data-k]')];
+  all.forEach(el => { if (!(el.dataset.k in defaults)) defaults[el.dataset.k] = el.innerText; });
+  function applyText() {
+    all.forEach(el => { el.innerText = state.edits[el.dataset.k] != null ? state.edits[el.dataset.k] : defaults[el.dataset.k]; });
+    diets.forEach(b => { b.dataset.diet = state.edits[b.dataset.dk] || b.dataset.def; b.querySelector('span').textContent = DIET_LABEL[b.dataset.diet]; });
+  }
+  applyText();
+  all.forEach(el => el.addEventListener('input', () => {
+    state.edits[el.dataset.k] = el.innerText; persist();
+    all.forEach(o => { if (o !== el && o.dataset.k === el.dataset.k) o.innerText = el.innerText; });
+    fitAll();
+  }));
+
+  // ---------- controls ----------
+  function pressIn(box, v) { box.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === String(v)))); }
+  const palBox = document.getElementById('pal');
+  palBox.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; state.pal = b.dataset.v; pressIn(palBox, state.pal); render(); });
+  const PIECES = [...document.querySelectorAll('.seg.mini[data-for]')].map(el => el.dataset.for);
+  function syncToggles() {
+    document.querySelectorAll('.seg.mini[data-for]').forEach(box => pressIn(box, layOf(box.dataset.for)));
+    const vals = new Set(PIECES.map(layOf));
+    document.querySelectorAll('#lay button').forEach(b => b.setAttribute('aria-pressed', String(vals.size === 1 && vals.has(b.dataset.v))));
+  }
+  document.getElementById('lay').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    PIECES.forEach(pc => { state.lays[pc] = b.dataset.v; }); syncToggles(); render();
+  });
+  document.querySelectorAll('.seg.mini[data-for]').forEach(box => box.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    state.lays[box.dataset.for] = b.dataset.v; syncToggles(); render();
+  }));
+  const amtBox = document.getElementById('boothAmt'), letBox = document.getElementById('letter');
+  amtBox.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; state.boothAmt = +b.dataset.v; pressIn(amtBox, state.boothAmt); render(); });
+  letBox.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; state.letter = b.dataset.v; pressIn(letBox, state.letter); document.documentElement.dataset.letter = state.letter; persist(); fitAll(); if (document.fonts) document.fonts.ready.then(fitAll); });
+  const wmRange = document.getElementById('wmRange'), wmOut = document.getElementById('wmOut');
+  wmRange.addEventListener('input', () => { state.wm = +wmRange.value; wmOut.textContent = state.wm + '%'; document.querySelectorAll('.wm > svg').forEach(w => { w.style.opacity = state.wm / 100; }); persist(); });
+  document.querySelectorAll('.size-sel:not(.paw-sel)').forEach(selEl => {
+    const piece = selEl.dataset.for;
+    selEl.innerHTML = SIZES[piece].map(z => `<option value="${z[0]}">${z[1]}</option>`).join('');
+    selEl.addEventListener('change', () => {
+      state.sizes[piece] = selEl.value;
+      document.querySelectorAll(`[data-piece="${piece}"] .card [data-f]`).forEach(g => { delete g._c; });
+      render();
+    });
+  });
+  document.querySelectorAll('.paw-sel').forEach(selEl => {
+    selEl.addEventListener('change', () => { if (selEl.value) state.pawPer[selEl.dataset.for] = selEl.value; else delete state.pawPer[selEl.dataset.for]; render(); });
+  });
+  const qBox = document.getElementById('quality');
+  qBox.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; state.q = +b.dataset.v; pressIn(qBox, state.q); persist(); });
+  const pawBox = document.getElementById('pawStyle');
+  pawBox.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; state.pawStyle = b.dataset.v; pressIn(pawBox, state.pawStyle); render(); });
+  const pawOp = document.getElementById('pawOp'), pawOpOut = document.getElementById('pawOpOut');
+  pawOp.addEventListener('input', () => { state.pawOp = +pawOp.value; pawOpOut.textContent = state.pawOp + '%'; cards.forEach(c => c.querySelectorAll('.paw').forEach(el => applyOne(c, el))); persist(); });
+  document.getElementById('pawShow').addEventListener('change', e => { state.pawShow = e.target.checked; render(); });
+  document.getElementById('hole').addEventListener('change', e => { state.hole = e.target.checked; render(); });
+  const mapIn = document.getElementById('mapUrl'), mapA = document.getElementById('mapLink');
+  const setMap = () => { mapA.href = state.mapUrl || MAP_DEFAULT; document.getElementById('mapOpen').href = mapA.href; };
+  mapIn.addEventListener('input', () => { const v = mapIn.value.trim(); state.mapUrl = /^https?:\/\//.test(v) ? v : (v ? 'https://' + v : MAP_DEFAULT); setMap(); persist(); });
+  mapA.addEventListener('click', e => e.preventDefault()); // in the editor a click selects; the link works in PDFs and on the map box
+  const bleedBox = document.getElementById('bleed');
+  bleedBox.addEventListener('change', () => { state.bleed = bleedBox.checked; persist(); });
+  const status = document.getElementById('status');
+  const say = (t) => { status.textContent = t; };
+  document.getElementById('shuffle').addEventListener('click', () => { state.salt++; render(); say('New arrangement ' + state.salt + ' drawn.'); });
+  document.getElementById('reset').addEventListener('click', () => {
+    state.edits = {}; applyText(); fitAll(); persist(); say('Wording reset to the sample text.');
+  });
+  document.getElementById('guides').addEventListener('change', e => { state.guides = e.target.checked; render(); });
+  function syncControls() {
+    pressIn(palBox, state.pal); pressIn(amtBox, state.boothAmt); pressIn(letBox, state.letter); syncToggles();
+    document.documentElement.dataset.letter = state.letter;
+    wmRange.value = state.wm; wmOut.textContent = state.wm + '%';
+    bleedBox.checked = !!state.bleed; document.getElementById('guides').checked = !!state.guides;
+    document.querySelectorAll('.size-sel:not(.paw-sel)').forEach(el => { el.value = sizeOf(el.dataset.for)[0]; });
+    document.querySelectorAll('.paw-sel').forEach(el => { el.value = state.pawPer[el.dataset.for] || ''; });
+    pressIn(qBox, state.q); pressIn(pawBox, state.pawStyle);
+    mapIn.value = state.mapUrl === MAP_DEFAULT ? '' : state.mapUrl; setMap();
+    pawOp.value = state.pawOp; pawOpOut.textContent = state.pawOp + '%';
+    document.getElementById('pawShow').checked = !!state.pawShow; document.getElementById('hole').checked = !!state.hole;
+  }
+
+  // ---------- editor: select, multi-select, drag, size, rotate, opacity, undo ----------
+  const selBar = document.getElementById('selBar'), selName = document.getElementById('selName');
+  const scR = document.getElementById('scRange'), rotR = document.getElementById('rotRange'), opR = document.getElementById('opRange');
+  const ITEM = '.card [data-m]:not(.wm), .card [data-f]';
+  let selected = [], gesture = null, justDragged = false;
+  all.forEach(el => el.setAttribute('contenteditable', 'false'));
+
+  // undo history of every move, size, rotation, opacity and hide
+  const undoStack = [], redoStack = [];
+  const snapshot = () => JSON.stringify({ mv: state.mv, fl: state.fl, added: state.added });
+  function pushHistory() { undoStack.push(snapshot()); if (undoStack.length > 100) undoStack.shift(); redoStack.length = 0; }
+  function restore(snap) {
+    const d = JSON.parse(snap); state.mv = d.mv; state.fl = d.fl; state.added = d.added || {};
+    cards.forEach(c => { syncAdded(c); applyMoves(c); }); persist(); drawBoxes(); syncSelBar();
+  }
+  function undo() { if (!undoStack.length) return; redoStack.push(snapshot()); restore(undoStack.pop()); say('Undone.'); }
+  function redo() { if (!redoStack.length) return; undoStack.push(snapshot()); restore(redoStack.pop()); say('Redone.'); }
+  document.getElementById('undoBtn').addEventListener('click', undo);
+  document.getElementById('redoBtn').addEventListener('click', redo);
+
+  const cardOf = (el) => el.closest('.card');
+  const pieceName = (card) => card.closest('[data-piece]').querySelector('.piece-head h2').textContent +
+    (card.dataset.kind === 'placard' ? ' ' + card.dataset.id.split('-')[1] : card.dataset.side ? ' (' + card.dataset.side + ')' : '');
+  const mOf = (el) => Object.assign({ x: 0, y: 0, s: 1, r: 0, h: false }, moveOf(cardOf(el), el) || {});
+
+  function setSel(list) {
+    selected = list.filter(el => el.isConnected);
+    drawBoxes(); syncSelBar();
+  }
+  function syncSelBar() {
+    selBar.hidden = !selected.length;
+    if (!selected.length) return;
+    const card = cardOf(selected[0]);
+    selName.textContent = selected.length === 1 ? `${selected[0].dataset.label} · ${pieceName(card)}` : `${selected.length} items · ${pieceName(card)}`;
+    const m = mOf(selected[0]);
+    scR.value = Math.round((m.s || 1) * 100); rotR.value = Math.round(m.r || 0); opR.value = Math.round((m.o != null ? m.o : 1) * 100);
+    document.getElementById('hideBtn').textContent = selected.every(el => mOf(el).h) ? 'Show' : 'Hide';
+    document.getElementById('scOut').textContent = scR.value + '%'; document.getElementById('rotOut').textContent = rotR.value + '°'; document.getElementById('opOut').textContent = opR.value + '%';
+  }
+  // selection frames live above the page so they never end up in a download
+  let boxes = [];
+  function drawBoxes() {
+    boxes.forEach(b => b.remove()); boxes = [];
+    selected.forEach(el => {
+      const r = el.getBoundingClientRect(), b = document.createElement('div');
+      b.className = 'selbox';
+      Object.assign(b.style, { left: (r.left + scrollX - 3) + 'px', top: (r.top + scrollY - 3) + 'px', width: (r.width + 6) + 'px', height: (r.height + 6) + 'px' });
+      document.body.appendChild(b); boxes.push(b);
+    });
+  }
+  let boxQueued = false;
+  const queueBoxes = () => { if (boxQueued) return; boxQueued = true; requestAnimationFrame(() => { boxQueued = false; drawBoxes(); }); };
+  window.addEventListener('resize', queueBoxes);
+  window.addEventListener('scroll', queueBoxes, { passive: true });
+
+  // apply a change to every selected item
+  function changeAll(fn, record = true) {
+    if (!selected.length) return;
+    if (record) pushHistory();
+    selected.forEach(el => { const m = mOf(el); fn(m, el); setMove(cardOf(el), el, m); });
+    drawBoxes(); syncSelBar();
+  }
+  // sliders record one undo step per drag of the handle
+  [[scR, (m, v) => { m.s = v / 100; }], [rotR, (m, v) => { m.r = v; }], [opR, (m, v) => { m.o = v / 100; }]].forEach(([inp, fn]) => {
+    let sliding = false;
+    inp.addEventListener('input', () => { changeAll(m => fn(m, +inp.value), !sliding); sliding = true; });
+    inp.addEventListener('change', () => { sliding = false; });
+  });
+  document.getElementById('hideBtn').addEventListener('click', () => { const hide = !selected.every(el => mOf(el).h); changeAll(m => { m.h = hide; }); });
+  document.getElementById('resetItemBtn').addEventListener('click', () => {
+    if (!selected.length) return; pushHistory();
+    selected.forEach(el => setMove(cardOf(el), el, null)); drawBoxes(); syncSelBar();
+  });
+  document.getElementById('resetCardBtn').addEventListener('click', () => {
+    if (!selected.length) return; pushHistory();
+    const card = cardOf(selected[0]); delete state.mv[card.dataset.id]; delete state.fl[card.dataset.id];
+    applyMoves(card); persist(); drawBoxes(); syncSelBar(); say('Everything on that card is back in its starting place.');
+  });
+  document.getElementById('pawsBtn').addEventListener('click', () => {
+    const card = selected.length ? cardOf(selected[0]) : null; if (!card) return;
+    setSel([...card.querySelectorAll('.paw')]);
+  });
+  document.getElementById('deselectBtn').addEventListener('click', () => setSel([]));
+
+  // ---------- add, duplicate, copy and paste text boxes ----------
+  let uid = Date.now() % 100000;
+  const isTextItem = (el) => el.dataset.m && !el.matches('.paw, .wm, .hole') && (el.matches('[data-k]') || el.querySelector('[data-k]'));
+  function addItem(card, html, box, label, mv) {
+    const id = 'x' + (uid++);
+    (state.added[card.dataset.id] = state.added[card.dataset.id] || []).push({ id, html, label, left: +box.left.toFixed(2), top: +box.top.toFixed(2), width: +box.width.toFixed(2) });
+    if (mv) { const b = state.mv[card.dataset.id] = state.mv[card.dataset.id] || {}; b[id] = mv; }
+    syncAdded(card); applyMoves(card); persist();
+    return card.querySelector(`:scope > [data-m="${id}"]`);
+  }
+  function addText(card) {
+    if (!card) return;
+    pushHistory();
+    const k = 'free-' + (uid++);
+    state.edits[k] = 'Your text';
+    const H = card.offsetHeight / card.offsetWidth * 100;
+    const el = addItem(card, `<p class="free" data-k="${k}">Your text</p>`, { left: 20, top: H / 2 - 4, width: 60 }, 'Text');
+    setSel([el]); say('Text added. Double-click it to type.');
+  }
+  // copy the box's markup with fresh keys, so the copy's words can change independently
+  function templateOf(el) {
+    const c = el.cloneNode(true);
+    c.removeAttribute('style'); c.classList.remove('added', 'is-hidden');
+    [c, ...c.querySelectorAll('[data-k]')].forEach(n => { if (n.dataset && n.dataset.k) { const k = n.dataset.k + '-c' + (uid++); state.edits[k] = n.innerText; n.dataset.k = k; } });
+    [c, ...c.querySelectorAll('[data-m]')].forEach(n => { delete n.dataset.m; });
+    c.querySelectorAll('[contenteditable]').forEach(n => n.setAttribute('contenteditable', 'false'));
+    return c.outerHTML;
+  }
+  function boxOf(el, card) {
+    const W = card.offsetWidth;
+    return { left: el.offsetLeft / W * 100, top: el.offsetTop / W * 100, width: el.offsetWidth / W * 100 };
+  }
+  function duplicate(list, toCard, shift) {
+    const texts = list.filter(isTextItem);
+    if (!texts.length) { say('Duplicate works on text boxes. Select some words first.'); return; }
+    pushHistory();
+    const made = texts.map(el => {
+      const card = toCard || cardOf(el), m = mOf(el);
+      return addItem(card, templateOf(el), boxOf(el, cardOf(el)), el.dataset.label, { x: m.x + shift, y: m.y + shift, s: m.s, r: m.r, o: m.o, h: false });
+    });
+    setSel(made.filter(Boolean)); say(made.length > 1 ? `${made.length} text boxes duplicated.` : 'Text box duplicated.');
+  }
+  function deleteSel() {
+    if (!selected.length) return;
+    pushHistory();
+    selected.forEach(el => {
+      const card = cardOf(el);
+      if (el.classList.contains('added')) {
+        state.added[card.dataset.id] = (state.added[card.dataset.id] || []).filter(a => a.id !== el.dataset.m);
+        if (state.mv[card.dataset.id]) delete state.mv[card.dataset.id][el.dataset.m];
+        el.remove();
+      } else { const m = mOf(el); m.h = true; setMove(card, el, m); }
+    });
+    persist(); setSel([]);
+  }
+  document.getElementById('dupBtn').addEventListener('click', () => duplicate(selected, null, 3));
+  document.getElementById('delBtn').addEventListener('click', deleteSel);
+  document.getElementById('addTextBtn2').addEventListener('click', () => addText(selected.length ? cardOf(selected[0]) : null));
+  document.querySelectorAll('.addtext-btn').forEach(b => b.addEventListener('click', () => {
+    const sec = b.closest('[data-piece]');
+    const inSec = selected.length && sec.contains(selected[0]) ? cardOf(selected[0]) : sec.querySelector('.card');
+    addText(inSec);
+  }));
+  let clip = [];
+
+  // pointer: click selects, shift-click adds, drag moves everything selected, drag on empty paper draws a selection box
+  document.addEventListener('pointerdown', e => {
+    if (e.button !== 0) return;
+    const card = e.target.closest('.card');
+    if (!card) { if (!e.target.closest('#selBar, .tools, .filter, header, .piece-head')) setSel([]); return; }
+    if (e.target.closest('[contenteditable="plaintext-only"], [contenteditable="true"]')) return; // typing in a text box
+    e.preventDefault();
+    if (document.activeElement && document.activeElement.isContentEditable) document.activeElement.blur();
+    const el = e.target.closest(ITEM);
+    const add = e.shiftKey || e.metaKey || e.ctrlKey;
+    if (el) {
+      let list = selected.filter(x => cardOf(x) === card);
+      if (add) list = list.includes(el) ? list.filter(x => x !== el) : list.concat(el);
+      else if (!list.includes(el)) list = [el];
+      setSel(list);
+      if (!selected.includes(el)) return;
+      gesture = { type: 'move', card, sx: e.clientX, sy: e.clientY, start: selected.map(x => [x, mOf(x)]), moved: false };
+    } else {
+      if (!add) setSel([]);
+      gesture = { type: 'box', card, sx: e.clientX, sy: e.clientY, base: add ? selected.filter(x => cardOf(x) === card) : [], moved: false, div: null };
+    }
+    try { card.setPointerCapture(e.pointerId); } catch (err) {}
+  });
+  document.addEventListener('pointermove', e => {
+    if (!gesture) return;
+    const dx = e.clientX - gesture.sx, dy = e.clientY - gesture.sy;
+    if (!gesture.moved && Math.hypot(dx, dy) < 3) return;
+    if (gesture.type === 'move') {
+      if (!gesture.moved) pushHistory();
+      gesture.moved = true;
+      const px = gesture.card.clientWidth;
+      gesture.start.forEach(([el, m0]) => {
+        const unit = el.dataset.f !== undefined ? +gesture.card.dataset.w / px : 100 / px;
+        setMove(gesture.card, el, Object.assign({}, m0, { x: +(m0.x + dx * unit).toFixed(2), y: +(m0.y + dy * unit).toFixed(2) }));
+      });
+      drawBoxes();
+    } else {
+      gesture.moved = true;
+      if (!gesture.div) { gesture.div = document.createElement('div'); gesture.div.className = 'marquee'; document.body.appendChild(gesture.div); }
+      const x = Math.min(e.clientX, gesture.sx), y = Math.min(e.clientY, gesture.sy);
+      Object.assign(gesture.div.style, { left: x + 'px', top: y + 'px', width: Math.abs(dx) + 'px', height: Math.abs(dy) + 'px' });
+      const box = { l: x, t: y, r: x + Math.abs(dx), b: y + Math.abs(dy) };
+      const hits = [...gesture.card.querySelectorAll('[data-m], [data-f]')].filter(el => {
+        if (el.matches('.inner > .courses, .inner > .sections') ) return false; // pick the courses themselves, not their wrapper
+        const r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        return r.width > 0 && cx >= box.l && cx <= box.r && cy >= box.t && cy <= box.b;
+      });
+      setSel([...new Set(gesture.base.concat(hits))]);
+    }
+  });
+  const endGesture = () => {
+    if (!gesture) return;
+    if (gesture.div) gesture.div.remove();
+    if (gesture.moved) { justDragged = true; setTimeout(() => { justDragged = false; }, 0); }
+    gesture = null;
+  };
+  document.addEventListener('pointerup', endGesture);
+  document.addEventListener('pointercancel', endGesture);
+  // a drag should never also count as a click (food marks toggle on click)
+  document.addEventListener('click', e => { if (justDragged) { e.stopPropagation(); e.preventDefault(); } }, true);
+
+  // double-click any words to edit them in place
+  document.addEventListener('dblclick', e => {
+    const t = e.target.closest('.card [data-k]'); if (!t) return;
+    setSel([]);
+    t.setAttribute('contenteditable', 'plaintext-only');
+    if (t.contentEditable !== 'plaintext-only') t.setAttribute('contenteditable', 'true');
+    t.focus();
+    const range = document.caretRangeFromPoint ? document.caretRangeFromPoint(e.clientX, e.clientY) : null;
+    if (range) { const sl = getSelection(); sl.removeAllRanges(); sl.addRange(range); }
+    t.addEventListener('blur', () => { t.setAttribute('contenteditable', 'false'); fitAll(); }, { once: true });
+  });
+
+  document.addEventListener('keydown', e => {
+    const typing = document.activeElement && (document.activeElement.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName));
+    if (typing) { if (e.key === 'Escape' && document.activeElement.isContentEditable) document.activeElement.blur(); return; }
+    const mod = e.metaKey || e.ctrlKey;
+    if (mod && e.key.toLowerCase() === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
+    if (mod && e.key.toLowerCase() === 'y') { e.preventDefault(); redo(); return; }
+    if (mod && e.key.toLowerCase() === 'v' && clip.length) { e.preventDefault(); duplicate(clip.filter(el => el.isConnected), selected.length ? cardOf(selected[0]) : null, 4); return; }
+    if (!selected.length) return;
+    if (e.key === 'Escape') { setSel([]); return; }
+    if (e.key === 'Delete' || e.key === 'Backspace') { e.preventDefault(); deleteSel(); return; }
+    if (mod && e.key.toLowerCase() === 'd') { e.preventDefault(); duplicate(selected, null, 3); return; }
+    if (mod && e.key.toLowerCase() === 'c') { clip = selected.filter(isTextItem); if (clip.length) say(clip.length > 1 ? `${clip.length} text boxes copied.` : 'Text box copied. Press Ctrl or Cmd + V to paste.'); return; }
+    const k = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
+    if (!k) return;
+    e.preventDefault();
+    changeAll((m, el) => {
+      const step = (e.shiftKey ? 2 : .4) * (el.dataset.f !== undefined ? +cardOf(el).dataset.w / 100 : 1);
+      m.x = +(m.x + k[0] * step).toFixed(2); m.y = +(m.y + k[1] * step).toFixed(2);
+    });
+  });
+
+  // ---------- show one group or one piece at a time ----------
+  const filterNav = document.getElementById('filter');
+  const GROUPS = { guests: ['invite', 'thanks', 'booth', 'board'], food: ['menu', 'bar', 'placard'] };
+  function showPieces(v) {
+    const on = v === 'all' ? null : GROUPS[v] || [v];
+    document.querySelectorAll('section.piece').forEach(sec => { sec.hidden = !!on && !on.includes(sec.dataset.piece); });
+    document.querySelectorAll('.group-block').forEach(g => { g.hidden = ![...g.querySelectorAll('section.piece')].some(sec => !sec.hidden); });
+    pressIn(filterNav, v);
+    filterNav.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.show === v)));
+    try { localStorage.setItem('housewarming-1804-view', v); } catch (e) {}
+    setSel([]); fitAll();
+  }
+  filterNav.addEventListener('click', e => { const b = e.target.closest('button'); if (b) showPieces(b.dataset.show); });
+  let firstView = 'all';
+  try { firstView = localStorage.getItem('housewarming-1804-view') || 'all'; } catch (e) {}
+
+  // ---------- design files ----------
+  function download(blob, name) {
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  }
+  document.getElementById('saveDesign').addEventListener('click', () => {
+    if (framed) { say('Save design works on the hosted website. This preview inside Claude cannot save files.'); return; }
+    download(new Blob([JSON.stringify(designJSON(), null, 2)], { type: 'application/json' }), 'singh-housewarming-design.json');
+    say('Design saved as singh-housewarming-design.json. Send that file to anyone working on the suite.');
+  });
+  const fileIn = document.getElementById('openFile');
+  document.getElementById('openDesign').addEventListener('click', () => fileIn.click());
+  fileIn.addEventListener('change', async () => {
+    const f = fileIn.files[0]; if (!f) return;
+    try {
+      const d = JSON.parse(await f.text());
+      if (d.app !== 'wildflower-suite') throw new Error('not ours');
+      applyDesign(d); applyText(); syncControls(); render(); say(`Opened ${f.name}.`);
+    } catch (e) { say(`${f.name} isn't a Wildflower Suite design file. Choose a file made with Save design.`); }
+    fileIn.value = '';
+  });
+
+  // ---------- downloads and printing ----------
+  const FILE = { invite: 'invitation', menu: 'menu', bar: 'bar-menu', thanks: 'bookmark', placard: 'placard', booth: 'photobooth-frame', board: 'welcome-board' };
+  // Downloads cannot leave the Claude preview frame; the hosted site has no such limit.
+  const framed = (() => { try { return window.self !== window.top; } catch (e) { return true; } })();
+  let fontCSS = null;
+  const libsReady = () => window.htmlToImage && window.jspdf;
+  async function snap(card, pxW, jpeg) {
+    if (!libsReady()) throw new Error('libs');
+    document.body.classList.add('exporting');
+    try {
+      if (!fontCSS) fontCSS = await embedFonts();
+      // the paper-grain pattern does not survive rasterising, and real paper brings its own texture
+      const opts = { pixelRatio: 1, canvasWidth: pxW, canvasHeight: Math.round(pxW * card.offsetHeight / card.offsetWidth), fontEmbedCSS: fontCSS, style: { boxShadow: 'none', margin: '0', backgroundImage: 'none' } };
+      const canvas = await htmlToImage.toCanvas(card, opts);
+      return jpeg ? canvas.toDataURL('image/jpeg', .94) : canvas.toDataURL('image/png');
+    } finally {
+      document.body.classList.remove('exporting');
+    }
+  }
+  // Inline the Latin font files so exported images use the real lettering.
+  async function embedFonts() {
+    const link = [...document.querySelectorAll('link[rel=stylesheet]')].find(l => /fonts\.googleapis/.test(l.href));
+    const css = await (await fetch(link.href)).text();
+    const blocks = css.split(/(?=\/\* [a-z-]+ \*\/)/).filter(b => /^\/\* (latin|latin-ext) \*\//.test(b));
+    const parts = await Promise.all(blocks.map(async b => {
+      const m = b.match(/url\((https:[^)]+)\)/); if (!m) return '';
+      const blob = await (await fetch(m[1])).blob();
+      const du = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(blob); });
+      return b.replace(m[1], du);
+    }));
+    return parts.join('');
+  }
+  // Pixel width for a print at the chosen quality, capped so very large boards stay manageable.
+  function pxFor(wmm, hmm, big) {
+    const dpi = big ? state.q / 2 : state.q;
+    return Math.round(Math.min(wmm / 25.4 * dpi, 9000 * wmm / Math.max(wmm, hmm)));
+  }
+  // links: per page, a list of {x, y, w, h, url} in mm on the card, made clickable in the PDF
+  function pdfFor(pages, w, h, links) {
+    const b = state.bleed ? 3 : 0, { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: [w + 2 * b, h + 2 * b], orientation: w > h ? 'landscape' : 'portrait' });
+    pages.forEach((img, i) => {
+      if (i) doc.addPage([w + 2 * b, h + 2 * b], w > h ? 'landscape' : 'portrait');
+      if (b) { doc.setFillColor('#fcfaf4'); doc.rect(0, 0, w + 2 * b, h + 2 * b, 'F'); }
+      doc.addImage(img, 'JPEG', b, b, w, h);
+      ((links || [])[i] || []).forEach(l => doc.link(b + l.x, b + l.y, l.w, l.h, { url: l.url }));
+    });
+    return doc;
+  }
+  // Fit as many cards as possible on A4 with crop marks. backs (optional) go on the following page,
+  // mirrored left to right so they line up when printed double-sided on the long edge.
+  function sheetPDF(fronts, backs, w, h) {
+    const { jsPDF } = window.jspdf, doc = new jsPDF({ unit: 'mm', format: 'a4' });
+    const cols = Math.max(1, Math.floor(200 / w)), rows = Math.max(1, Math.floor(277 / h)), per = cols * rows;
+    if (fronts.length === 1 && backs) fronts = Array(per).fill(fronts[0]);
+    const x0 = (210 - cols * w) / 2, y0 = (297 - rows * h) / 2;
+    const marks = () => {
+      doc.setDrawColor(150); doc.setLineWidth(.15);
+      for (let c = 0; c <= cols; c++) { const x = x0 + c * w; doc.line(x, y0 - 8, x, y0 - 2); doc.line(x, y0 + rows * h + 2, x, y0 + rows * h + 8); }
+      for (let r = 0; r <= rows; r++) { const y = y0 + r * h; doc.line(x0 - 8, y, x0 - 2, y); doc.line(x0 + cols * w + 2, y, x0 + cols * w + 8, y); }
+    };
+    let first = true;
+    for (let i = 0; i < fronts.length; i += per) {
+      const group = fronts.slice(i, i + per);
+      if (!first) doc.addPage('a4'); first = false; marks();
+      group.forEach((img, k) => doc.addImage(img, 'JPEG', x0 + (k % cols) * w, y0 + Math.floor(k / cols) * h, w, h));
+      if (backs) {
+        doc.addPage('a4'); marks();
+        group.forEach((_, k) => doc.addImage(backs[(i + k) % backs.length], 'JPEG', x0 + (cols - 1 - (k % cols)) * w, y0 + Math.floor(k / cols) * h, w, h));
+      }
+    }
+    return doc;
+  }
+  function printImages(imgs, w, h) {
+    const fr = document.createElement('iframe');
+    fr.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0';
+    document.body.appendChild(fr);
+    const d = fr.contentDocument;
+    d.open();
+    d.write(`<!doctype html><html><head><style>@page{size:${w}mm ${h}mm;margin:0}html,body{margin:0}img{display:block;width:${w}mm;height:${h}mm;break-after:page}</style></head><body>${imgs.map(s => `<img src="${s}">`).join('')}</body></html>`);
+    d.close();
+    const go = () => { fr.contentWindow.focus(); fr.contentWindow.print(); setTimeout(() => fr.remove(), 60000); };
+    const pics = [...d.images]; let left = pics.length;
+    if (!left) go(); else pics.forEach(im => { if (im.complete) { if (!--left) go(); } else im.onload = () => { if (!--left) go(); }; });
+  }
+  function printSheet(imgs, w, h) {
+    const per = Math.max(1, Math.floor(200 / w)) * Math.max(1, Math.floor(277 / h));
+    const pages = [];
+    for (let i = 0; i < imgs.length; i += per) pages.push(imgs.slice(i, i + per));
+    const fr = document.createElement('iframe');
+    fr.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0';
+    document.body.appendChild(fr);
+    const d = fr.contentDocument;
+    d.open();
+    d.write(`<!doctype html><html><head><style>@page{size:A4;margin:0}html,body{margin:0}.pg{width:210mm;height:297mm;display:grid;grid-template-columns:repeat(${Math.max(1, Math.floor(200 / w))},${w}mm);grid-auto-rows:${h}mm;justify-content:center;align-content:center;break-after:page}img{width:${w}mm;height:${h}mm;display:block;outline:.1mm solid #bbb}</style></head><body>${pages.map(pg => `<div class="pg">${pg.map(s => `<img src="${s}">`).join('')}</div>`).join('')}</body></html>`);
+    d.close();
+    setTimeout(() => { fr.contentWindow.focus(); fr.contentWindow.print(); setTimeout(() => fr.remove(), 60000); }, 600);
+  }
+  async function act(section, what, btn) {
+    const piece = section.dataset.piece, cs = [...section.querySelectorAll('.card')], kind = cs[0].dataset.kind, sz = sizeOf(piece);
+    if (framed) { say('Downloads and printing work on the hosted website. This preview inside Claude cannot save files.'); return; }
+    if (!libsReady()) { say('The download tools are still loading, or this page is offline. Check your connection and try again.'); return; }
+    const label = btn.textContent; btn.disabled = true; btn.textContent = 'Preparing…';
+    try {
+      if (kind === 'booth') {
+        const pw = sz[2] * (state.q > 300 ? 2 : 1), ph = Math.round(pw * sz[3] / sz[2]);
+        const png = await snap(cs[0], pw, false);
+        if (what === 'print') printImages([png], sz[2] / 10, sz[3] / 10);
+        else download(await (await fetch(png)).blob(), `photobooth-frame-${pw}x${ph}.png`);
+        say(`Photobooth frame ready: ${pw} × ${ph} px with a transparent photo window.`);
+        return;
+      }
+      const [, , w, h] = sz, px = pxFor(w, h, kind === 'board'), tag = `${FILE[kind]}-${sz[0]}`;
+      const imgs = [];
+      for (const c of cs) imgs.push(await snap(c, px, what !== 'png'));
+      if (what === 'png') {
+        const names = kind === 'thanks' ? ['front', 'back'] : null;
+        for (let i = 0; i < imgs.length; i++) download(await (await fetch(imgs[i])).blob(), `${tag}${names ? '-' + names[i] : cs.length > 1 ? '-' + (i + 1) : ''}.png`);
+      } else if (what === 'pdf') {
+        const links = cs.map(c => [...c.querySelectorAll('a[href^="http"]')].map(a => {
+          const cr = c.getBoundingClientRect(), r = a.getBoundingClientRect(), k = w / cr.width, pad = 1.5;
+          return { x: (r.left - cr.left) * k - pad, y: (r.top - cr.top) * k - pad, w: r.width * k + 2 * pad, h: r.height * k + 2 * pad, url: a.href };
+        }));
+        pdfFor(imgs, w, h, links).save(`${tag}${kind === 'placard' ? 's' : ''}.pdf`);
+      } else if (what === 'sheet') {
+        (kind === 'thanks' ? sheetPDF([imgs[0]], [imgs[1]], w, h) : sheetPDF(imgs, null, w, h)).save(`${tag}-a4-sheet.pdf`);
+      } else if (what === 'print') {
+        printImages(imgs, w, h);
+      } else if (what === 'printsheet') {
+        printSheet(imgs, w, h);
+      }
+      say(`${section.querySelector('.piece-head h2').textContent} ready (${sz[1]}).`);
+    } catch (e) {
+      console.error(e);
+      say('That download failed. Reload the page and try again. If it keeps failing, try Chrome or Edge.');
+    } finally { btn.disabled = false; btn.textContent = label; }
+  }
+  document.querySelectorAll('.dl button').forEach(btn => btn.addEventListener('click', () => act(btn.closest('[data-piece]'), btn.dataset.act, btn)));
+
+  syncControls();
+  render();
+  showPieces(firstView);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { cards.forEach(c => c.querySelectorAll('[data-f]').forEach(g => { delete g._c; })); cards.forEach(applyMoves); fitAll(); });
+  window.addEventListener('resize', fitAll);
+})();
+</script>
+</body>
+</html>
